@@ -1,0 +1,1 @@
+var allowjs = require()
