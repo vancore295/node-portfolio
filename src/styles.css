@@ -21,3 +21,34 @@ body {
 .navbar-light .navbar-brand:hover {
     color: orange
 }
+
+.jumbotron {
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    text-align: center;
+    padding: auto;
+    background-color: transparent;
+}
+
+.jumbotron h1 {
+    color: blue;
+    z-index: 0;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-55%, -35%);
+    z-index: -1;
+}
+
+#welcome {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
