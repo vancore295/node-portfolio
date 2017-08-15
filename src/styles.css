@@ -21,3 +21,8 @@ body {
 .navbar-light .navbar-brand:hover {
     color: orange
 }
+
+.show>a:focus {
+    color: orange;
+    background-color: transparent;
+}
