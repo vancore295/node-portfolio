@@ -1,3 +1,52 @@
-<p>
-  madlibs works!
-</p>
+<div class="jumbotron" id="welcome">
+    <div class="container">
+        <h1 class="display-1">Madlibs</h1>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row" id="paretn">
+        <div class="col-md-12 bg-priamry">
+            <a href="" class="btn btn-primary text-white" data-toggle="collapse" data-target="#greetings" data-parent="#parent">Greetings Earthlings</a>
+            <div class="collapse show" id="greetings">
+                <div class="card">
+                    <div class="card-block">
+                        <form [formGroup]="greet" class="border-primary">
+                            <div class="form-group row">
+                                <div class="col-md-4">
+                                    <label>Noun(plural)</label>
+                                    <input class="form-control" type="text" ng-model="greet.noun_plural" placeholder="Noun(plural)" id="madinput">
+                                    <label>Occupation</label>
+                                    <input class="form-control" type="text" ng-model="greet.occupation" placeholder="Occupation">
+                                    <label>Animal(plural)</label>
+                                    <input class="form-control" type="text" ng-model="greet.animal_plural" placeholder="Animal(plural)">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label>Place</label>
+                                    <input class="form-control" type="text" ng-model="greet.place" placeholder="Place">
+                                    <label>Verb</label>
+                                    <input class="form-control" type="text" ng-model="greet.verb" placeholder="Verb">
+                                    <label>Noun</label>
+                                    <input class="form-control" type="text" ng-model="greet.noun" placeholder="Noun">
+                                </div>
+                                <ng-container *ngIf="greet != undefined">
+                                    <div class="col-md-4">
+                                        <div class="card border-success">
+                                            <div class="card-header text-white bg-success">Greetings Earthlings</div>
+                                            <div class="card-body border-success">
+                                                <p class="card-text">In the book <i>War of the <span><b>{{ greet.noun_plural }}</b></span></i>, the main character is an anonymous <span><b>{{ greet.occupation }}</b></span> who records the arrival of a <span>{{user.animal_plural}}</span>                                                    in
+                                                    <span><b>{{ greet.place }}</b>.</span> Needless to say, havoc reigns as the <span><b>{{ greet.animal_plural }}</b></span> continue to
+                                                    <span><b>{{ greet.verb }}</b></span> everthing in sight, until they are killed by the common <b>{{ greet.noun }}</b>.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-container>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
