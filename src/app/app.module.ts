@@ -10,6 +10,9 @@ import { UnityGamesComponent } from './components/unity-games/unity-games.compon
 import { ResumeComponent } from './components/resume/resume.component';
 import { GamejamsComponent } from './components/gamejams/gamejams.component';
 import { MadlibsComponent } from './components/madlibs/madlibs.component';
+import { GreetingsComponent } from './components/greetings/greetings.component';
+import { ProverbsComponent } from './components/proverbs/proverbs.component';
+import { WarComponent } from './components/war/war.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, data: { title: 'Agassou Studios' } },
@@ -28,7 +31,10 @@ const appRoutes: Routes = [
     UnityGamesComponent,
     ResumeComponent,
     GamejamsComponent,
-    MadlibsComponent
+    MadlibsComponent,
+    GreetingsComponent,
+    ProverbsComponent,
+    WarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,31 @@
+import { Component, OnInit } from '@angular/core';
+import {  FormBuilder, FormGroup } from '@angular/forms';
+@Component({
+  selector: 'app-war',
+  templateUrl: './war.component.html',
+  styleUrls: ['./war.component.css']
+})
+export class WarComponent implements OnInit {
+  war: FormGroup;
+
+  constructor(fb: FormBuilder) {
+    this.war = fb.group({
+      'noun1': [''],
+      'noun2': [''],
+      'noun3': [''],
+      'occupation': [''],
+      'verb1': [''],
+      'place': [''],
+      'verbing1': [''],
+      'noun4': [''],
+      'verbing2': [''],
+      'noun_plural': [''],
+      'noun5': [''],
+      'emotion': ['']
+    });
+  }
+
+  ngOnInit() {
+  }
+
+}
