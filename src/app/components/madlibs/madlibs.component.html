@@ -5,53 +5,27 @@
 </div>
 
 <div class="container">
+    <div class="row">
+        <a href="#greetings" class="btn btn-primary text-white" data-toggle="collapse" data-target="#greetings" aria-expanded="false" aria-controls="greetings" data-parent="#parent">Greetings Earthlings</a>
+        <a href="" class="btn btn-primary text-white" data-toggle="collapse" data-target="#proverbs" aria-expanded="false" data-parent="#parent">Ancient Proverbs</a>
+        <a href="" class="btn btn-primary text-white" data-toggle="collapse" data-target="#war" aria-expanded="false" data-parent="#parent">War</a>
+    </div>
     <div class="row" id="paretn">
         <div class="col-md-12 bg-priamry">
-            <a href="" class="btn btn-primary text-white" data-toggle="collapse" data-target="#greetings" data-parent="#parent">Greetings Earthlings</a>
-            <div class="collapse show" id="greetings">
-                <div class="card">
-                    <div class="card-block">
-                        <form [formGroup]="greet" ngSubmint="onSubmit(greet.value)">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <label>Noun(plural)</label>
-                                    <input class="form-control" type="text" [formControl]="greet.controls['noun_plural']" placeholder="Noun(plural)" id="madinput">
-                                    <label>Occupation</label>
-                                    <input class="form-control" type="text" [formControl]="greet.controls['occupation']" placeholder="Occupation">
-                                    <label>Animal(plural)</label>
-                                    <input class="form-control" type="text" [formControl]="greet.controls['animal_plural']" placeholder="Animal(plural)">
-                                </div>
-
-                                <div class="col-md-4">
-                                    <label>Place</label>
-                                    <input class="form-control" type="text" [formControl]="greet.controls['place']" placeholder="Place">
-                                    <label>Verb</label>
-                                    <input class="form-control" type="text" [formControl]="greet.controls['verb']" placeholder="Verb">
-                                    <label>Noun</label>
-                                    <input class="form-control" type="text" [formControl]="greet.controls['noun']" placeholder="Noun">
-                                </div>
-
-                                <div class="col-md-4">
-                                    <div class="card border-success">
-                                        <div class="card-header bg-success text-white">
-                                            Greetings Earthlings
-                                        </div>
-                                        <div class="card-body">
-                                            <p class="card-text text-left">
-                                                In the book <i>War of the <span><b>{{ greet.controls['noun_plural'].value }}</b></span></i>, the main character is an anonymous <span><b>{{ greet.controls['occupation'].value }}</b></span> who records the
-                                                arrival of a <span>{{ greet.controls['animal_plural'].value }}</span> in
-                                                <span><b>{{ greet.controls['place'].value }}</b>.</span> Needless to say, havoc reigns as the <span><b>{{ greet.controls['animal_plural'].value }}</b></span> continue to
-                                                <span><b>{{ greet.controls['verb'].value }}</b></span> everthing in sight, until they are killed by the common <b>{{ greet.controls['noun'].value }}</b>.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+            <div class="col">
+                <div class="collapse multi-collapse show" id="greetings">
+                    <app-greetings></app-greetings>
+                </div>
+            </div>
+            <div class="col">
+                <div class="collapse multi-collapse" id="proverbs">
+                    <app-proverbs></app-proverbs>
+                </div>
+            </div>
+            <div class="col">
+                <div class="collapse multi-collapse" id="war">
+                    <app-war></app-war>
                 </div>
             </div>
         </div>
     </div>
-
-    <button type="submit" (click)="onSubmit(greet.value)" class="ui button">Submit</button>
