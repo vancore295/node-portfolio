@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule, FormGroup, FormBuilder, ReactiveFormsModule, FormControl } from '@angular/forms';
+import {  FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-madlibs',
@@ -9,16 +9,23 @@ import { FormsModule, FormGroup, FormBuilder, ReactiveFormsModule, FormControl }
 
 
 export class MadlibsComponent implements OnInit {
-
   greet: FormGroup;
-  let  = new FormGroup({
-    noun_plural: new FormControl()
-  });
 
-  constructor() { 
-    
+  constructor(fb: FormBuilder) {
+    this.greet = fb.group({
+      'noun_plural': [''],
+      'occupation': [''],
+      'animal_plural': [''],
+      'place': [''],
+      'verb': [''],
+      'noun': ['']
+    });
   }
 
   ngOnInit() { }
+
+  onSubmit(form: any): void {
+    console.log('you submitted value:', form);
+  }
 
 }
