@@ -13,6 +13,7 @@ import { MadlibsComponent } from './components/madlibs/madlibs.component';
 import { GreetingsComponent } from './components/greetings/greetings.component';
 import { ProverbsComponent } from './components/proverbs/proverbs.component';
 import { WarComponent } from './components/war/war.component';
+import { MenuitemComponent } from './menuitem/menuitem.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, data: { title: 'Agassou Studios' } },
@@ -34,7 +35,8 @@ const appRoutes: Routes = [
     MadlibsComponent,
     GreetingsComponent,
     ProverbsComponent,
-    WarComponent
+    WarComponent,
+    MenuitemComponent
   ],
   imports: [
     BrowserModule,
