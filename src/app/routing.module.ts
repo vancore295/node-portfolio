@@ -1,8 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+
 
 // Components
 import { AppComponent } from './app.component';
@@ -19,39 +17,18 @@ import { MenuitemComponent } from './components/menuitem/menuitem.component';
 import { ShopComponent } from './components/shop/shop.component';
 import { ShopitemComponent } from './components/shopitem/shopitem.component';
 
-// Servics
-import { MenuService } from './services/menu.service';
+const appRoutes: Routes = [
+    { path: '', component: HomeComponent, data: { title: 'Agassou Studios' } },
+    { path: 'resume', component: ResumeComponent },
+    { path: 'unityGames', component: UnityGamesComponent },
+    { path: 'gameJams', component: GamejamsComponent },
+    { path: 'madlibs', component: MadlibsComponent },
+    { path: '**', component: PagePageNotFoundComponent }
+  ];
 
-// Routes
-import { RoutingModule } from './routing.module';
+  @NgModule({
+    imports: [ RouterModule.forRoot(appRoutes, { enableTracing: false }) ],
+    exports: [ RouterModule ]
+  })
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    PagePageNotFoundComponent,
-    UnityGamesComponent,
-    ResumeComponent,
-    GamejamsComponent,
-    MadlibsComponent,
-    GreetingsComponent,
-    ProverbsComponent,
-    WarComponent,
-    MenuitemComponent,
-    ShopComponent,
-    ShopitemComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    ReactiveFormsModule,
-    RoutingModule
-  ],
-  providers: [
-    MenuService
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+  export class RoutingModule {}

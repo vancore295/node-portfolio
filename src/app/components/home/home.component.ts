@@ -12,7 +12,7 @@ import { MenuService } from '../../services/menu.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  menuItems: any [];
+  menuItems: any =  [];
   isLoading = true;
 
   constructor(private menuService: MenuService, private http: Http) { }
