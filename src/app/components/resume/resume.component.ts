@@ -5,7 +5,7 @@ import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
   templateUrl: './resume.component.html',
   styleUrls: ['./resume.component.css']
 })
-export class ResumeComponent implements OnInit {
+export class ResumeComponent implements OnInit, AfterViewInit {
   context: CanvasRenderingContext2D;
   @ViewChild('myCanvas') line;
 
