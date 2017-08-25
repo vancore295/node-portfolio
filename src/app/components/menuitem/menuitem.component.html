@@ -1,13 +1,13 @@
-<div class="menuitem">
-    <ng-container *ngIf="menuItem.route != ''">
-        <a class="text-white" routerLink="/{{ menuItem.route }}" [attr.data-toggle]="menuItem.dataToggle" [attr.data-placement]="menuItem.dataPlacement" [attr.data-title]="menuItem.title" [attr.target]="menuItem.target">
+<div class="menuitem" *ngIf="menuItem.route != ''">
+    <ng-container>
+        <a class="text-light" routerLink="/{{ menuItem.route }}" [attr.data-toggle]="menuItem.dataToggle" [attr.data-placement]="menuItem.dataPlacement" [attr.data-title]="menuItem.title" [attr.target]="menuItem.target">
 
             <ng-container *ngIf="menuItem.showLabel">
                 {{ menuItem.linkLabel }}
             </ng-container>
 
             <ng-container *ngIf="menuItem.showImage">
-                <img src="{{ menuItem.imageSource }}">
+                <img src="{{ menuItem.imageSource }}" class="linkimage">
             </ng-container>
 
         </a>
@@ -15,16 +15,16 @@
 </div>
 
 
-<div class="menuitem">
-    <ng-container *ngIf="menuItem.href != ''" class="menuitem">
-        <a href="{{menuItem.href}}" [attr.data-toggle]="menuItem.dataToggle" [attr.data-placement]="menuItem.dataPlacement" [attr.data-title]="menuItem.title" [attr.target]="menuItem.target">
+<div class="menuitem" *ngIf="menuItem.href != ''">
+    <ng-container>
+        <a class="text-light" href="{{menuItem.href}}" [attr.data-toggle]="menuItem.dataToggle" [attr.data-placement]="menuItem.dataPlacement" [attr.data-title]="menuItem.title" [attr.target]="menuItem.target">
 
             <ng-container *ngIf="menuItem.showLabel">
                 {{ menuItem.linkLabel }}
             </ng-container>
 
             <ng-container *ngIf="menuItem.showImage">
-                <img src="{{ menuItem.imageSource }}">
+                <img src="{{ menuItem.imageSource }}" class="linkimage">
             </ng-container>
 
         </a>

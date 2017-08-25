@@ -14,13 +14,6 @@ declare var $: any;
 export class HomeComponent implements OnInit {
   menuItems: MenuItem[];
 
-   maxspeed = 0.05;
-   minspeed = 0.01;
-   speed = this.maxspeed;
-   radius = 200;
-   count = 0;
-
-
   constructor() {
     this.menuItems = [{
       route: 'unityGames',
