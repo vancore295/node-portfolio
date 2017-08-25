@@ -1,3 +1,13 @@
-<p>
-  menuitem works!
-</p>
+<ng-container *ngIf="menuItem != undefined" class="menuitem">
+    <a href="{{ menuItem.href }}" [attr.data-toggle]="menuItem.dataToggle" [attr.data-placement]="menuItem.dataPlacement" [attr.data-title]="menuItem.title" [attr.data-translate]="menuItem.target">
+
+        <ng-container *ngIf="menuItem.showLabel">
+            {{ menuItem.linkLabel }}
+        </ng-container>
+
+        <ng-container *ngIf="menuItem.showImage">
+            <img src="{{ menuItem.imageSource }}">
+        </ng-container>
+
+    </a>
+</ng-container>

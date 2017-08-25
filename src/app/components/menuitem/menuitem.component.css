@@ -1,0 +1,30 @@
+.menuitem {
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    width: 125px;
+    height: 125px;
+    color: black;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+    background-color: #0e2f44;
+    border-radius: 50%;
+    z-index: -10;
+}
+
+.menuitem a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(0, 0);
+    position: center;
+}
+
+.menuitem:hover {
+    z-index: 10;
+    width: 150;
+    height: 100;
+    transition: width 2s;
+}
