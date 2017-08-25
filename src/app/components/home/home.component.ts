@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 // Classes
 import { MenuItem } from '../../classes/menuitem';
 
+declare var jquery: any;
+declare var $: any;
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,6 +13,13 @@ import { MenuItem } from '../../classes/menuitem';
 })
 export class HomeComponent implements OnInit {
   menuItems: MenuItem[];
+
+   maxspeed = 0.05;
+   minspeed = 0.01;
+   speed = this.maxspeed;
+   radius = 200;
+   count = 0;
+
 
   constructor() {
     this.menuItems = [{
@@ -75,6 +85,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
 }
