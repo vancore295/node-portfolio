@@ -5,10 +5,10 @@
                 <h1 class="display-1">Welcome to Agassou Studios</h1>
             </div>
         </div>
-        <!-- <div class="container">
-            <div ng-repeat="item in MenuItems track by $index">
-                <menu-item item-info="item"></menu-item>
-            </div>
-        </div> -->
+        <div class="container">
+            <ng-container *ngIf="menuItems.length > 0">
+                <app-menuitem *ngFor="let item of menuItems" [menuItem]="item"></app-menuitem>
+            </ng-container>
+        </div>
     </div>
 </div>
