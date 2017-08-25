@@ -1,23 +1,35 @@
-<div class="card">
+<div class="card border-primary">
     <div class="card-block">
         <form [formGroup]="greet" ngSubmint="onSubmit(greet.value)">
             <div class="row">
                 <div class="col-md-4">
-                    <label>Noun(plural)</label>
-                    <input class="form-control" type="text" [formControl]="greet.controls['noun_plural']" placeholder="Noun(plural)" id="madinput">
-                    <label>Occupation</label>
-                    <input class="form-control" type="text" [formControl]="greet.controls['occupation']" placeholder="Occupation">
-                    <label>Animal(plural)</label>
-                    <input class="form-control" type="text" [formControl]="greet.controls['animal_plural']" placeholder="Animal(plural)">
+                    <div class="col form-group">
+                        <label>Noun(plural)</label>
+                        <input class="form-control" type="text" [formControl]="greet.controls['noun_plural']" placeholder="Noun(plural)" id="madinput">
+                    </div>
+                    <div class="col form-group">
+                        <label>Occupation</label>
+                        <input class="form-control" type="text" [formControl]="greet.controls['occupation']" placeholder="Occupation">
+                    </div>
+                    <div class="col form-group">
+                        <label>Animal(plural)</label>
+                        <input class="form-control" type="text" [formControl]="greet.controls['animal_plural']" placeholder="Animal(plural)">
+                    </div>
                 </div>
 
                 <div class="col-md-4">
-                    <label>Place</label>
-                    <input class="form-control" type="text" [formControl]="greet.controls['place']" placeholder="Place">
-                    <label>Verb</label>
-                    <input class="form-control" type="text" [formControl]="greet.controls['verb']" placeholder="Verb">
-                    <label>Noun</label>
-                    <input class="form-control" type="text" [formControl]="greet.controls['noun']" placeholder="Noun">
+                    <div class="col form-group">
+                        <label>Place</label>
+                        <input class="form-control" type="text" [formControl]="greet.controls['place']" placeholder="Place">
+                    </div>
+                    <div class="col form-group">
+                        <label>Verb</label>
+                        <input class="form-control" type="text" [formControl]="greet.controls['verb']" placeholder="Verb">
+                    </div>
+                    <div class="col form-group">
+                        <label>Noun</label>
+                        <input class="form-control" type="text" [formControl]="greet.controls['noun']" placeholder="Noun">
+                    </div>
                 </div>
 
                 <div class="col-md-4">
@@ -33,6 +45,8 @@
                             </p>
                         </div>
                     </div>
+                    <button type="button" class="btn btn-danger text-white" (click)="reset()">Reset</button>
+                    <button type="submit" (click)="onSubmit()" class="btn btn-success">Save</button>
                 </div>
             </div>
         </form>

@@ -1,45 +1,69 @@
-<div class="card">
+<div class="card border-primary">
     <div class="card-block">
         <form [formGroup]="war">
             <div class="row">
                 <div class="col-md-4">
-                    <label>Noun</label>
-                    <input class="form-control" type="text" [formControl]="war.controls['noun1']" ng-model="war.noun1" placeholder="Noun">
-                    <label>Noun</label>
-                    <input class="form-control" type="text" [formControl]="war.controls['noun2']" ng-model="war.noun2" placeholder="Noun">
-                    <label>Noun</label>
-                    <input class="form-control" type="text" [formControl]="war.controls['noun3']" ng-model="war.noun3" placeholder="Noun">
-                    <label>Occupation</label>
-                    <input class="form-control" type="text" [formControl]="war.controls['occupation']" ng-model="war.occupation" placeholder="Occupation">
-                    <label>Verb</label>
-                    <input class="form-control" type="text" [formControl]="war.controls['verb1']" ng-model="war.verb1" placeholder="Verb">
-                    <label>Place</label>
-                    <input class="form-control" type="text" [formControl]="war.controls['place']" ng-model="war.place" placeholder="Place">
+                    <div class="col form-group">
+                        <label>Noun</label>
+                        <input class="form-control" type="text" [formControl]="war.controls['noun1']" placeholder="Noun">
+                    </div>
+                    <div class="col form-group">
+                        <label>Noun</label>
+                        <input class="form-control" type="text" [formControl]="war.controls['noun2']" placeholder="Noun">
+                    </div>
+                    <div class="col form-group">
+                        <label>Noun</label>
+                        <input class="form-control" type="text" [formControl]="war.controls['noun3']" placeholder="Noun">
+                    </div>
+                    <div class="col form-group">
+                        <label>Occupation</label>
+                        <input class="form-control" type="text" [formControl]="war.controls['occupation']" placeholder="Occupation">
+                    </div>
+                    <div class="col form-group">
+                        <label>Verb</label>
+                        <input class="form-control" type="text" [formControl]="war.controls['verb1']" placeholder="Verb">
+                    </div>
+                    <div class="col form-group">
+                        <label>Place</label>
+                        <input class="form-control" type="text" [formControl]="war.controls['place']" placeholder="Place">
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    <label>Verb ending in "ing"</label>
-                    <input class="form-control" type="text" [formControl]="war.controls['verbing1']" ng-model="war.verbing1" placeholder="Verb ending in ing">
-                    <label>Noun</label>
-                    <input class="form-control" type="text" [formControl]="war.controls['noun4']" ng-model="war.noun4" placeholder="Noun">
-                    <label>Verb ending in "ing"</label>
-                    <input class="form-control" type="text" [formControl]="war.controls['verbing2']" ng-model="war.verbing2" placeholder="Verb ending in ing">
-                    <label>Noun(plural)</label>
-                    <input class="form-control" type="text" [formControl]="war.controls['noun_plural']" ng-model="war.noun_plural" placeholder="Noun(plural)">
-                    <label>Noun</label>
-                    <input class="form-control" type="text" [formControl]="war.controls['noun5']" ng-model="war.noun5" placeholder="Noun">
-                    <label>Emotion</label>
-                    <input class="form-control" type="text" [formControl]="war.controls['emotion']" ng-model="war.emotion" placeholder="Emotion">
+                    <div class="col form-group">
+                        <label>Verb ending in "ing"</label>
+                        <input class="form-control" type="text" [formControl]="war.controls['verbing1']" placeholder="Verb ending in ing">
+                    </div>
+                    <div class="col form-group">
+                        <label>Noun</label>
+                        <input class="form-control" type="text" [formControl]="war.controls['noun4']" placeholder="Noun">
+                    </div>
+                    <div class="col form-group">
+                        <label>Verb ending in "ing"</label>
+                        <input class="form-control" type="text" [formControl]="war.controls['verbing2']" placeholder="Verb ending in ing">
+                    </div>
+                    <div class="col form-group">
+                        <label>Noun(plural)</label>
+                        <input class="form-control" type="text" [formControl]="war.controls['noun_plural']" placeholder="Noun(plural)">
+                    </div>
+                    <div class="col form-group">
+                        <label>Noun</label>
+                        <input class="form-control" type="text" [formControl]="war.controls['noun5']" placeholder="Noun">
+                    </div>
+                    <div class="col form-group">
+                        <label>Emotion</label>
+                        <input class="form-control" type="text" [formControl]="war.controls['emotion']" placeholder="Emotion">
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card border-success">
-                        <div class="card-header bg-success text-white">
-                            Ancient war
+                    <div class="card border-info">
+                        <div class="card-header bg-info text-white">
+                            War
                         </div>
                         <div class="card-body">
                             <p class="card-text">It was durring the <span><b>{{ war.controls['noun1'].value }}</b></span> when I was running through a
-                                <span><b>{{ war.controls['noun2'].value }}</b></span> when a <span><b>{{ war.noun3 }}</b></span> went off next to my platoon. Our
+                                <span><b>{{ war.controls['noun2'].value }}</b></span> when a <span><b>{{ war.controls['noun3'].value }}</b></span> went off next to my platoon. Our
                                 <span><b>{{ war.controls['occupation'].value }}</b></span> yelled for us to <span><b>{{ war.controls['verb1'].value }}</b></span> to the nearest <span><b>{{ war.controls['place'].value }}</b></span> we could find. When
-                                we got to the <span><b>{{ war.controls['place'].value }}</b></span> we <span><b>{{ war.controls['verbing1'].value }}</b></span> to start a fire. As were starting the fire the enemy saw the
+                                we got to the <span><b>{{ war.controls['place'].value }}</b></span> we <span><b>{{ war.controls['verbing1'].value }}</b></span>to start a fire. As were starting the fire the enemy saw the
                                 <span><b>{{ war.controls['noun4'].value }}</b></span> from the fire and started <span><b>{{ war.controls['verbing2'].value }}</b></span>
                                 <span><b>{{ war.controls['noun_plural'].value }}</b></span> at us. We all quickly ducked behind the <span><b>{{ war.controls['noun5'].value }}</b></span> at the <span><b>{{ war.controls['place'].value }}</b></span> and
                                 returned fire. We quickly eliminated the enemy and were
@@ -47,6 +71,8 @@
                             </p>
                         </div>
                     </div>
+                    <button type="button" class="btn btn-danger text-white" (click)="reset()">Reset</button>
+                    <button type="submit" (click)="onSubmit(war.value)" class="btn btn-success">Save</button>
                 </div>
             </div>
         </form>

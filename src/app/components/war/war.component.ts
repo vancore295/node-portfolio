@@ -28,4 +28,12 @@ export class WarComponent implements OnInit {
   ngOnInit() {
   }
 
+  reset(): void {
+    this.war.reset();
+  }
+
+  onSubmit(form: any): void {
+    console.log('you submitted value:', form);
+  }
+
 }
