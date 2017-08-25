@@ -4,7 +4,9 @@
     "license": "MIT",
     "scripts": {
         "ng": "ng",
-        "start": "ng serve",
+        "start": "node dist/server/server.js",
+        "dev": "concurrently \"mongod\" \"ng serve -pc proxy.conf.json --open\" \"tsc -w -p server\" \"nodemon dist/server/server.js\"",
+        "prod": "concurrently \"mongod\" \"ng build -aot -prod && tsc -p server && node dist/server/server.js\"",
         "build": "ng build",
         "test": "ng test",
         "lint": "ng lint",
