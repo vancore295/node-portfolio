@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpModule, Http } from '@angular/http';
 
 // Classes
 import { MenuItem } from '../../classes/menuitem';
 
-declare var jquery: any;
-declare var $: any;
+import { MenuService } from '../../services/menu.service';
 
 @Component({
   selector: 'app-home',
@@ -12,10 +12,12 @@ declare var $: any;
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  menuItems: MenuItem[];
+  menuItems: any [];
+  isLoading = true;
 
-  constructor() {
-    this.menuItems = [{
+  constructor(private menuService: MenuService, private http: Http) {
+    this.menuItems = [
+        {
       route: 'unityGames',
       href: '',
       target: '',
@@ -78,7 +80,14 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.getMenuItems();
   }
 
+  getMenuItems() {
+      this.menuService.getMenuItems().subscribe(
+          data => this.menuItems = data,
+          error => console.log(error),
+          () => this.isLoading = false
+      );
+  }
 }

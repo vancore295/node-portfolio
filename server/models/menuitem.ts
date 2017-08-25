@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
 
-const menuitemSchema = new mongoose.Scheema({
+const menuitemSchema = new mongoose.Schema({
     route: String,
     href: String,
     target: String,
