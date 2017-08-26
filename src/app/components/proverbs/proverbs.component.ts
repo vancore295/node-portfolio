@@ -8,7 +8,7 @@ import {  FormBuilder, FormGroup } from '@angular/forms';
 })
 export class ProverbsComponent implements OnInit {
   proverbs: FormGroup;
-  
+
   constructor(fb: FormBuilder) {
     this.proverbs = fb.group({
       'noun1': [''],
@@ -26,6 +26,14 @@ export class ProverbsComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  reset(): void {
+    this.proverbs.reset();
+  }
+
+  onSubmit(form: any): void {
+    console.log('you submitted value:', form);
   }
 
 }

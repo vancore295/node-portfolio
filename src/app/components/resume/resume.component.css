@@ -1,0 +1,16 @@
+.resume {
+    background-color: white;
+    border-style: inset;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 0%;
+}
+
+.header {
+    text-align: center;
+}
+
+#line {
+    height: 50px;
+    width: 100%;
+}

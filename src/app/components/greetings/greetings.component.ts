@@ -23,4 +23,7 @@ export class GreetingsComponent implements OnInit {
   ngOnInit() {
   }
 
+  reset(): void {
+    this.greet.reset();
+  }
 }
