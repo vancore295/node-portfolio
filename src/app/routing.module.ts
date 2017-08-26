@@ -23,6 +23,7 @@ const appRoutes: Routes = [
     { path: 'unityGames', component: UnityGamesComponent },
     { path: 'gameJams', component: GamejamsComponent },
     { path: 'madlibs', component: MadlibsComponent },
+    { path: 'shop', component: ShopComponent },
     { path: '**', component: PagePageNotFoundComponent }
   ];
 
