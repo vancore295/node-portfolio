@@ -3,7 +3,7 @@ import {  FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-war',
   templateUrl: './war.component.html',
-  styleUrls: ['./war.component.css']
+  styleUrls: ['./war.component.scss']
 })
 export class WarComponent implements OnInit {
   war: FormGroup;

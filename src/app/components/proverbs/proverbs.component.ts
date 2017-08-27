@@ -4,7 +4,7 @@ import {  FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-proverbs',
   templateUrl: './proverbs.component.html',
-  styleUrls: ['./proverbs.component.css']
+  styleUrls: ['./proverbs.component.scss']
 })
 export class ProverbsComponent implements OnInit {
   proverbs: FormGroup;
