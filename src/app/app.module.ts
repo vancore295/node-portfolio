@@ -21,6 +21,7 @@ import { ShopitemComponent } from './components/shopitem/shopitem.component';
 
 // Servics
 import { MenuService } from './services/menu.service';
+import { ShopService } from './services/shop.service';
 
 // Routes
 import { RoutingModule } from './routing.module';
@@ -49,7 +50,8 @@ import { RoutingModule } from './routing.module';
     RoutingModule
   ],
   providers: [
-    MenuService
+    MenuService,
+    ShopService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
