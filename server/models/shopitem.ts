@@ -8,6 +8,6 @@ const shopitemSchema = new mongoose.Schema({
     price: Number
 });
 
-const Shopitem = mongoose.model('Shopitem', shopitemSchema);
+const ShopItem = mongoose.model('Shopitem', shopitemSchema);
 
-export default shopitemSchema;
+export default ShopItem;
