@@ -1,3 +1,13 @@
-<p>
-  shopitem works!
-</p>
+<div class="card border-dark">
+    <div class="card-header bg-dark text-white">
+        {{itemData.title}}
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <img src="{{ display }}" class="image" (mouseenter)="imageSwap($event)" (mouseleave)="imageSwap($event)">
+        </div>
+        <div class="row">
+            <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span></button>
+        </div>
+    </div>
+</div>

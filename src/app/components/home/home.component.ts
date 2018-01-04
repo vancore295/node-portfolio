@@ -4,7 +4,7 @@ import { HttpModule, Http } from '@angular/http';
 // Classes
 import { MenuItem } from '../../classes/menuitem';
 
-import { MenuService } from '../../services/menu.service';
+import { MenuService } from '../../services/menu/menu.service';
 
 @Component({
   selector: 'app-home',

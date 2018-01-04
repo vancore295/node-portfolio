@@ -3,7 +3,7 @@ import { HttpModule, Http } from '@angular/http';
 
 import { ShopItem } from '../../classes/shopitem';
 
-import { ShopService } from '../../services/shop.service';
+import { ShopService } from '../../services/shop/shop.service';
 
 
 @Component({
@@ -19,6 +19,7 @@ export class ShopComponent implements OnInit {
   constructor(private shopservice: ShopService, private http: Http ) { }
 
   ngOnInit() {
+    this.getShopItems();
   }
 
   getShopItems() {

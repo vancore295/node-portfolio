@@ -20,8 +20,8 @@ import { ShopComponent } from './components/shop/shop.component';
 import { ShopitemComponent } from './components/shopitem/shopitem.component';
 
 // Servics
-import { MenuService } from './services/menu.service';
-import { ShopService } from './services/shop.service';
+import { MenuService } from './services/menu/menu.service';
+import { ShopService } from './services/shop/shop.service';
 
 // Routes
 import { RoutingModule } from './routing.module';

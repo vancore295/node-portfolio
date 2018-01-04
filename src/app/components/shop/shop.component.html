@@ -16,7 +16,13 @@
         </nav>
 
         <div class="card-body">
+            <ng-container *ngIf="!isLoading">
+                <div class="row">
+                    <app-shopitem class="col-md-4" *ngFor="let item of shopItems" [itemData]="item">
 
+                    </app-shopitem>
+                </div>
+            </ng-container>
         </div>
     </div>
 </div>
