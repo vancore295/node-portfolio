@@ -13,8 +13,9 @@ import { ShopService } from '../../services/shop/shop.service';
 })
 export class ShopComponent implements OnInit {
 
-  shopItems: any = [];
+  shopItems: ShopItem[] = [];
   isLoading = true;
+  cart: ShopItem[] = [];
 
   constructor(private shopservice: ShopService, private http: Http ) { }
 
@@ -35,6 +36,11 @@ export class ShopComponent implements OnInit {
       data => this.shopItems = data,
       error => console.log(error)
     );
+  }
+
+  addTocart(item: ShopItem) {
+    this.cart.push(item);
+    console.log(this.cart);
   }
 
 }

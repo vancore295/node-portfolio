@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { ShopItem } from '../../classes/shopitem';
 
 @Component({
@@ -8,6 +8,7 @@ import { ShopItem } from '../../classes/shopitem';
 })
 export class ShopitemComponent implements OnInit, OnChanges {
   @Input() itemData: ShopItem;
+  @Output() addedToCart = new EventEmitter<ShopItem>();
   display: String;
 
   constructor() { }
@@ -28,6 +29,10 @@ export class ShopitemComponent implements OnInit, OnChanges {
     } else if (this.itemData.imageAlt && (this.display === this.itemData.imageAlt)) {
       this.display = this.itemData.imageMain;
     }
+  }
+
+  addToCart(event) {
+    this.addedToCart.emit(this.itemData);
   }
 
 }

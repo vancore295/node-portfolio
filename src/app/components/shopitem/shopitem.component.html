@@ -1,13 +1,15 @@
 <div class="card border-dark">
     <div class="card-header bg-dark text-white">
-        {{itemData.title}}
+        {{itemData.title}} <span class="float-right">{{itemData.price | currency:'USD':true:'2.2-4'}}</span>
     </div>
     <div class="card-body">
         <div class="row">
             <img src="{{ display }}" class="image" (mouseenter)="imageSwap($event)" (mouseleave)="imageSwap($event)">
         </div>
         <div class="row">
-            <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span></button>
+            <button type="button" class="btn btn-primary" (click)="addToCart($event)" data-toggle="tooltip" data-placement="top" title="Add to cart">
+				<fa name="shopping-cart"></fa>
+			</button>
         </div>
     </div>
 </div>

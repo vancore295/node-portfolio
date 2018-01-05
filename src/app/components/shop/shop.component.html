@@ -25,7 +25,7 @@
             </ng-container>
             <ng-container *ngIf="!isLoading">
                 <div class="row">
-                    <app-shopitem class="col-md-4" *ngFor="let item of shopItems" [itemData]="item">
+                    <app-shopitem class="col-md-4" *ngFor="let item of shopItems" [itemData]="item" (addedToCart)="addTocart($event)">
 
                     </app-shopitem>
                 </div>
