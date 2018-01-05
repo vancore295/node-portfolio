@@ -1,8 +1,8 @@
-import * as OrderItem from './orderItem';
-import * as Address from './address';
+import { OrderItem } from './orderItem';
+import { Address } from './address';
 
 export class Order {
     OrderNumber: Number;
-    address: Address;
+    Address: Address;
     items: OrderItem[];
 }

@@ -16,6 +16,13 @@
         </nav>
 
         <div class="card-body">
+            <ng-container *ngIf="isLoading" class="container">
+                <div class="row">
+                    <div class="col-md-3 offset-md-3">
+                        <fa name="cog" animation="spin" size="3x"></fa>
+                    </div>
+                </div>
+            </ng-container>
             <ng-container *ngIf="!isLoading">
                 <div class="row">
                     <app-shopitem class="col-md-4" *ngFor="let item of shopItems" [itemData]="item">
