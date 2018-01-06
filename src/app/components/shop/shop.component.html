@@ -13,10 +13,10 @@
                     <a class="nav-item nav-link">FAQ</a>
                 </div>
             </div>
-            <button (click)="showCart($event)">
-				<sub *ngIf="cart.length > 0" class="text-white">{{ cart.length }}</sub>
+            <button (click)="Cart.show()" [disabled]="cart.length < 1">
+				<sub *ngIf="cart.length > 0" class="text-black">{{ cart.length }}</sub>
                 <fa name="shopping-cart" size="lg"></fa>
-                <sup *ngIf="total > 0" class="text-white">{{ total | currency:'USD':true:'2.2-4'}}</sup>
+                <sup *ngIf="total > 0" class="text-black">{{ total | currency:'USD':true:'2.2-4'}}</sup>
             </button>
         </nav>
 
@@ -38,3 +38,22 @@
         </div>
     </div>
 </div>
+
+
+
+<app-modal #Cart>
+    <div class="app-modal-header">
+        Cart
+    </div>
+    <div class="app-modal-body">
+        <app-shop-list-item *ngFor="let item of cart" [item]="item">
+        </app-shop-list-item>
+        <div>
+            <hr> Total: <span class="float-right">{{ total | currency:'USD':true:'2.2-4'}}</span>
+        </div>
+    </div>
+    <div class="app-modal-footer">
+        <button type="button" class="btn btn-primary" (click)="Cart.hide()">Close</button>
+        <button type="button" class="btn btn-success" (click)="checkOut()">Checkout</button>
+    </div>
+</app-modal>

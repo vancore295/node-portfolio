@@ -20,6 +20,7 @@ import { MenuitemComponent } from './components/menuitem/menuitem.component';
 import { ShopComponent } from './components/shop/shop.component';
 import { ShopitemComponent } from './components/shopitem/shopitem.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { ShopListItemComponent } from './components/shop-list-item/shop-list-item.component';
 
 // Servics
 import { MenuService } from './services/menu/menu.service';
@@ -27,7 +28,6 @@ import { ShopService } from './services/shop/shop.service';
 
 // Routes
 import { RoutingModule } from './routing.module';
-
 
 @NgModule({
   declarations: [
@@ -44,7 +44,8 @@ import { RoutingModule } from './routing.module';
     MenuitemComponent,
     ShopComponent,
     ShopitemComponent,
-    ModalComponent
+    ModalComponent,
+    ShopListItemComponent
   ],
   imports: [
     BrowserModule,

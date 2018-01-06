@@ -59,8 +59,9 @@ export class ShopComponent implements OnInit, OnChanges {
     return total;
   }
 
-  showCart(event) {
-    
+  checkOut() {
+    console.log('Checking out');
   }
+
 
 }
