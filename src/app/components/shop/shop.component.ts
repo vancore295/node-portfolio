@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  OnChanges, SimpleChanges } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
 
 import { ShopItem } from '../../classes/shopitem';
@@ -11,16 +11,21 @@ import { ShopService } from '../../services/shop/shop.service';
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.scss']
 })
-export class ShopComponent implements OnInit {
+export class ShopComponent implements OnInit, OnChanges {
 
   shopItems: ShopItem[] = [];
   isLoading = true;
   cart: ShopItem[] = [];
+  total: Number = 0;
 
   constructor(private shopservice: ShopService, private http: Http ) { }
 
   ngOnInit() {
     this.getShopItems();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.total = this.calcTotal(this.cart);
   }
 
   getShopItems() {
@@ -40,7 +45,22 @@ export class ShopComponent implements OnInit {
 
   addTocart(item: ShopItem) {
     this.cart.push(item);
+    this.total = this.calcTotal(this.cart);
     console.log(this.cart);
+  }
+
+  calcTotal(items: ShopItem[]) {
+    let total = 0;
+
+    for (let i = 0; i < items.length; i++) {
+      total += items[i].price;
+    }
+
+    return total;
+  }
+
+  showCart(event) {
+    
   }
 
 }

@@ -3,8 +3,8 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">Shop</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
+			  <span class="navbar-toggler-icon"></span>
+			</button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-item nav-link active">Home <span class="sr-only">(current)</span></a>
@@ -13,13 +13,18 @@
                     <a class="nav-item nav-link">FAQ</a>
                 </div>
             </div>
+            <button (click)="showCart($event)">
+				<sub *ngIf="cart.length > 0" class="text-white">{{ cart.length }}</sub>
+                <fa name="shopping-cart" size="lg"></fa>
+                <sup *ngIf="total > 0" class="text-white">{{ total | currency:'USD':true:'2.2-4'}}</sup>
+            </button>
         </nav>
 
         <div class="card-body">
             <ng-container *ngIf="isLoading" class="container">
                 <div class="row">
                     <div class="col-md-3 offset-md-3">
-                        <fa name="cog" animation="spin" size="3x"></fa>
+                        <fa name="cog" animation="spin" size="5x"></fa>
                     </div>
                 </div>
             </ng-container>

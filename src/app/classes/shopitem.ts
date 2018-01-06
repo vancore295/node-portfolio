@@ -3,5 +3,5 @@ export class ShopItem {
     title: String;
     imageMain: String;
     imageAlt: String;
-    price: Number;
+    price: number;
 }
