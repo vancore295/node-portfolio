@@ -23,11 +23,7 @@ export class ShopService {
   }
 
   saveOrder(order: Order) {
-    return this.http.post('api/placeOrder', order).subscribe(res => {
-      console.log(res);
-    }, err => {
-      console.log(err);
-    });
+    return this.http.post('api/placeOrder', order).map(res => res.json());
   }
 
 }

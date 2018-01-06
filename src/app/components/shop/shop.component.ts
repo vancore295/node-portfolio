@@ -21,6 +21,8 @@ export class ShopComponent implements OnInit, OnChanges {
 
   isLoading: Boolean = true;
   processingOrder: Boolean = false;
+  orderSuccess: Boolean = false;
+  orderError: Boolean = false;
 
   constructor(private shopservice: ShopService, private http: Http ) { }
 
@@ -37,6 +39,22 @@ export class ShopComponent implements OnInit, OnChanges {
       data => this.shopItems = data,
       error => console.log(error),
       () => this.isLoading = false
+    );
+  }
+
+  placeOrder(order: Order) {
+    this.shopservice.saveOrder(order).subscribe(
+      data => {
+        console.log('succes', data);
+        this.orderSuccess = true;
+      },
+      error => {
+        console.log('err', error);
+        this.orderError = true;
+      },
+      () => {
+        this.processingOrder = false;
+      }
     );
   }
 
@@ -68,7 +86,7 @@ export class ShopComponent implements OnInit, OnChanges {
     this.processingOrder = true;
     const newOrder = new Order();
     newOrder.items = this.convertToOrder(cart);
-
+    this.placeOrder(newOrder);
   }
 
   convertToOrder(items: ShopItem[]): OrderItem[] {

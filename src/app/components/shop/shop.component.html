@@ -45,7 +45,7 @@
     <div class="app-modal-header">
         Cart
     </div>
-    <div class="app-modal-body" *ngIf="!processingOrder">
+    <div class="app-modal-body" *ngIf="!processingOrder && !orderSuccess && !orderError">
         <app-shop-list-item *ngFor="let item of cart" [item]="item">
         </app-shop-list-item>
         <div>
@@ -57,8 +57,14 @@
             <fa name="cog" animation="spin" size="3x"></fa>
         </div>
     </div>
+    <div class="app-modal-body" *ngIf="!processingOrder && orderSuccess">
+        Order succesful!
+    </div>
+    <div class="app-modal-body" *ngIf="!processingOrder && orderError">
+        Order Error!
+    </div>
     <div class="app-modal-footer">
         <button type="button" class="btn btn-primary" (click)="Cart.hide()">Close</button>
-        <button type="button" class="btn btn-success" (click)="checkOut(cart)">Checkout</button>
+        <button type="button" class="btn btn-success" (click)="checkOut(cart)" [disabled]="processingOrder || orderSuccess || orderError">Checkout</button>
     </div>
 </app-modal>
