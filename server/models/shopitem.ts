@@ -5,7 +5,8 @@ const shopitemSchema = new mongoose.Schema({
     title: String,
     imageMain: String,
     imageAlt: String,
-    price: Number
+    price: Number,
+    sizes: [String]
 });
 
 const ShopItem = mongoose.model('Shopitem', shopitemSchema);

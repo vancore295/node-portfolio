@@ -23,7 +23,7 @@
         <div class="card-body">
             <ng-container *ngIf="isLoading" class="container">
                 <div class="row">
-                    <div class="col-md-3 offset-md-3">
+                    <div class="d-flex justify-content-center">
                         <fa name="cog" animation="spin" size="5x"></fa>
                     </div>
                 </div>
@@ -52,8 +52,10 @@
             <hr> Total: <span class="float-right">{{ total | currency:'USD':true:'2.2-4'}}</span>
         </div>
     </div>
-    <div class="app-modal-body" *ngIf="!processingOrder">
-        <fa name="cog" animation="spin" size="lg"></fa>
+    <div class="app-modal-body" *ngIf="processingOrder">
+        <div class="d-flex justify-content-center">
+            <fa name="cog" animation="spin" size="3x"></fa>
+        </div>
     </div>
     <div class="app-modal-footer">
         <button type="button" class="btn btn-primary" (click)="Cart.hide()">Close</button>

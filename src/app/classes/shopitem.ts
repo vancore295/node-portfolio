@@ -5,4 +5,6 @@ export class ShopItem {
     imageMain: String;
     imageAlt: String;
     price: number;
+    sizes: [String];
+    size: String;
 }

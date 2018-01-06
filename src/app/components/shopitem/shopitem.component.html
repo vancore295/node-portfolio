@@ -6,10 +6,24 @@
         <div class="row">
             <img src="{{ display }}" class="image" (mouseenter)="imageSwap($event)" (mouseleave)="imageSwap($event)">
         </div>
-        <div class="row">
-            <button type="button" class="btn btn-primary" (click)="addToCart($event)" data-toggle="tooltip" data-placement="top" title="Add to cart">
-				<fa name="shopping-cart"></fa>
-			</button>
+        <div class="d-inline-flex flex-row">
+            <div class="p-2">
+                <div class="form-group d-inline-flex">
+                    <label class="sm-label p-2">
+                                Sizes
+                            </label>
+                    <select class="form-control p-2" [(ngModel)]="itemData.size">
+                                <option *ngFor="let size of itemData.sizes" [value]="size">
+                                    {{ size }}
+                                </option>
+                            </select>
+                </div>
+            </div>
+            <div class="p-2 justify-content-end">
+                <button type="button" class="btn btn-primary" (click)="addToCart($event)" [disabled]="!itemData.size" data-toggle="tooltip" data-placement="top" title="Add to cart">
+                        <fa name="shopping-cart"></fa>
+            </button>
+            </div>
         </div>
     </div>
 </div>

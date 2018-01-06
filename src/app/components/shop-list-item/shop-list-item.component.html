@@ -2,10 +2,13 @@
     <div class="col-md-3">
         <img src="{{ item.imageMain}}" class="listImage">
     </div>
-    <div class="col-md-6">
+    <div class="col-md-2">
+        Size: {{ item.size }}
+    </div>
+    <div class="col-md-4">
         {{ item.title}}
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
         <span class="float-right">{{ item.price | currency:'USD':true:'2.2-4'}}</span>
     </div>
 </div>
