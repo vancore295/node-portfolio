@@ -1,7 +1,6 @@
 import * as express from 'express';
 
 import MenuItemCtrl from '../controllers/MenuItem';
-import MenuItem from '../models/menuitem';
 
 export default function setMenuRoutes(app) {
     const router = express.Router();

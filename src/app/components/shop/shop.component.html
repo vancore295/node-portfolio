@@ -45,15 +45,18 @@
     <div class="app-modal-header">
         Cart
     </div>
-    <div class="app-modal-body">
+    <div class="app-modal-body" *ngIf="!processingOrder">
         <app-shop-list-item *ngFor="let item of cart" [item]="item">
         </app-shop-list-item>
         <div>
             <hr> Total: <span class="float-right">{{ total | currency:'USD':true:'2.2-4'}}</span>
         </div>
     </div>
+    <div class="app-modal-body" *ngIf="!processingOrder">
+        <fa name="cog" animation="spin" size="lg"></fa>
+    </div>
     <div class="app-modal-footer">
         <button type="button" class="btn btn-primary" (click)="Cart.hide()">Close</button>
-        <button type="button" class="btn btn-success" (click)="checkOut()">Checkout</button>
+        <button type="button" class="btn btn-success" (click)="checkOut(cart)">Checkout</button>
     </div>
 </app-modal>

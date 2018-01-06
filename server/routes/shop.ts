@@ -1,7 +1,6 @@
 import * as express from 'express';
 
 import ShopItemCtrl from '../controllers/shop';
-import ShopItem from '../models/shopitem';
 
 export default function setShopRoutes(app) {
     const router = express.Router();

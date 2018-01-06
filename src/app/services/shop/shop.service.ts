@@ -4,6 +4,8 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
+import { Order } from '../../classes/order';
+
 @Injectable()
 export class ShopService {
 
@@ -18,6 +20,14 @@ export class ShopService {
 
   getAll(): Observable<any> {
     return this.http.get('api/shopitems').map(res => res.json());
+  }
+
+  saveOrder(order: Order) {
+    return this.http.post('api/placeOrder', order).subscribe(res => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+    });
   }
 
 }

@@ -2,6 +2,8 @@ import { Component, OnInit,  OnChanges, SimpleChanges } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
 
 import { ShopItem } from '../../classes/shopitem';
+import { Order } from '../../classes/order';
+import { OrderItem } from '../../classes/orderItem';
 
 import { ShopService } from '../../services/shop/shop.service';
 
@@ -14,9 +16,11 @@ import { ShopService } from '../../services/shop/shop.service';
 export class ShopComponent implements OnInit, OnChanges {
 
   shopItems: ShopItem[] = [];
-  isLoading = true;
   cart: ShopItem[] = [];
   total: Number = 0;
+
+  isLoading: Boolean = true;
+  processingOrder: Boolean = false;
 
   constructor(private shopservice: ShopService, private http: Http ) { }
 
@@ -59,8 +63,25 @@ export class ShopComponent implements OnInit, OnChanges {
     return total;
   }
 
-  checkOut() {
+  checkOut(cart: ShopItem[]) {
     console.log('Checking out');
+    this.processingOrder = true;
+    const newOrder = new Order();
+    newOrder.items = this.convertToOrder(cart);
+
+  }
+
+  convertToOrder(items: ShopItem[]): OrderItem[] {
+    const newItems: OrderItem[] = [];
+
+    for (let i = 0; i < items.length;  i++) {
+      const temp = new OrderItem();
+      temp.shopItemId = items[i]._id;
+
+      newItems.push(temp);
+    }
+
+    return newItems;
   }
 
 

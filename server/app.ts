@@ -7,6 +7,7 @@ import * as path from 'path';
 
 import setMenuRoutes from './routes/menu';
 import setShopRoutes from './routes/shop';
+import setOrderRoutes from './routes/order';
 
 const app = express();
 dotenv.load({ path: '.env' });
@@ -27,6 +28,7 @@ db.once('open', () => {
 
   setMenuRoutes(app);
   setShopRoutes(app);
+  setOrderRoutes(app);
 
   app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, '../public/index.html'));
