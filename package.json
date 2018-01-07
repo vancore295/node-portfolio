@@ -8,7 +8,6 @@
     "license": "MIT",
     "scripts": {
         "ng": "ng",
-        "postinstall": "ng build --aot -prod",
         "start": "concurrently \"mongod\" \"ng serve -pc proxy.conf.json --open\" \"tsc -w -p server\" \"nodemon dist/server/app.js\"",
         "predev": "tsc -p server",
         "dev": "concurrently \"mongod\" \"ng serve -pc proxy.conf.json --open\" \"tsc -w -p server\" \"nodemon dist/server/app.js\"",
