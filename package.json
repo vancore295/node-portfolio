@@ -8,6 +8,7 @@
     "license": "MIT",
     "scripts": {
         "ng": "ng",
+        "postinstall": "ng build --aot -prod",
         "start": "concurrently \"mongod\" \"ng serve -pc proxy.conf.json --open\" \"tsc -w -p server\" \"nodemon dist/server/app.js\"",
         "predev": "tsc -p server",
         "dev": "concurrently \"mongod\" \"ng serve -pc proxy.conf.json --open\" \"tsc -w -p server\" \"nodemon dist/server/app.js\"",
@@ -28,6 +29,7 @@
         "@angular/platform-browser": "^4.3.6",
         "@angular/platform-browser-dynamic": "^4.3.6",
         "@angular/router": "^4.3.6",
+        "@angular/cli": "1.2.7",
         "angular-font-awesome": "^3.1.1",
         "body-parser": "^1.17.2",
         "bootstrap": "^4.0.0-beta",
