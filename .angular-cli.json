@@ -4,7 +4,7 @@
         "name": "node-portfolio"
     },
     "apps": [{
-        "root": "src",
+        "root": "ng-app/src",
         "outDir": "dist/public",
         "assets": [
             "assets",
@@ -18,14 +18,15 @@
         "testTsconfig": "tsconfig.spec.json",
         "prefix": "app",
         "styles": [
-            "../node_modules/bootstrap/dist/css/bootstrap.min.css",
-            "styles.css"
+            "styles.css",
+            "../../node_modules/bootstrap/dist/css/bootstrap.min.css",
+            "../../node_modules/font-awesome/css/font-awesome.css"
         ],
         "scripts": [
-            "../node_modules/jquery/dist/jquery.min.js",
-            "../node_modules/popper.js/dist/umd/popper.min.js",
-            "../node_modules/bootstrap/dist/js/bootstrap.min.js",
-            "scripts/animateHome.js"
+            "scripts/animateHome.js",
+            "../../node_modules/jquery/dist/jquery.min.js",
+            "../../node_modules/popper.js/dist/umd/popper.min.js",
+            "../../node_modules/bootstrap/dist/js/bootstrap.min.js"
         ],
         "environmentSource": "environments/environment.ts",
         "environments": {
