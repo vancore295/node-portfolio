@@ -4,7 +4,7 @@
         "name": "node-portfolio"
     },
     "apps": [{
-        "root": "ng-app/src",
+        "root": "src",
         "outDir": "dist/public",
         "assets": [
             "assets",
@@ -19,14 +19,13 @@
         "prefix": "app",
         "styles": [
             "styles.css",
-            "../../node_modules/bootstrap/dist/css/bootstrap.min.css",
-            "../../node_modules/font-awesome/css/font-awesome.css"
+            "../node_modules/bootstrap/dist/css/bootstrap.min.css"
         ],
         "scripts": [
-            "scripts/animateHome.js",
-            "../../node_modules/jquery/dist/jquery.min.js",
-            "../../node_modules/popper.js/dist/umd/popper.min.js",
-            "../../node_modules/bootstrap/dist/js/bootstrap.min.js"
+            "../node_modules/jquery/dist/jquery.min.js",
+            "../node_modules/popper.js/dist/umd/popper.min.js",
+            "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+            "scripts/animateHome.js"
         ],
         "environmentSource": "environments/environment.ts",
         "environments": {
