@@ -32,8 +32,8 @@ export class ProverbsComponent implements OnInit {
     this.proverbs.reset();
   }
 
-  onSubmit(form: any): void {
-    console.log('you submitted value:', form);
+  onSubmit(): void {
+    console.log();
   }
 
 }

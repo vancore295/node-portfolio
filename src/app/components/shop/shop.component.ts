@@ -19,10 +19,10 @@ export class ShopComponent implements OnInit, OnChanges {
   cart: ShopItem[] = [];
   total: Number = 0;
 
-  isLoading: Boolean = true;
-  processingOrder: Boolean = false;
-  orderSuccess: Boolean = false;
-  orderError: Boolean = false;
+  isLoading = true;
+  processingOrder = false;
+  orderSuccess = false;
+  orderError = false;
 
   constructor(private shopservice: ShopService, private http: Http ) { }
 

@@ -26,4 +26,7 @@ export class GreetingsComponent implements OnInit {
   reset(): void {
     this.greet.reset();
   }
+  onSubmit(): void {
+    console.log();
+  }
 }
