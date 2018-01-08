@@ -21,6 +21,8 @@ import { ShopComponent } from './components/shop/shop.component';
 import { ShopitemComponent } from './components/shopitem/shopitem.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { ShopListItemComponent } from './components/shop-list-item/shop-list-item.component';
+import { JobHistoryComponent } from './components/job-history/job-history.component';
+
 
 // Servics
 import { MenuService } from './services/menu/menu.service';
@@ -28,6 +30,7 @@ import { ShopService } from './services/shop/shop.service';
 
 // Routes
 import { RoutingModule } from './routing.module';
+
 
 @NgModule({
   declarations: [
@@ -45,7 +48,8 @@ import { RoutingModule } from './routing.module';
     ShopComponent,
     ShopitemComponent,
     ModalComponent,
-    ShopListItemComponent
+    ShopListItemComponent,
+    JobHistoryComponent
   ],
   imports: [
     BrowserModule,
