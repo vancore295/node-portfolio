@@ -22,7 +22,8 @@ import { ShopitemComponent } from './components/shopitem/shopitem.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { ShopListItemComponent } from './components/shop-list-item/shop-list-item.component';
 import { JobHistoryComponent } from './components/job-history/job-history.component';
-
+import { ProjectsComponent } from './components/projects/projects.component';
+import { SkillsComponent } from './components/skills/skills.component';
 
 // Servics
 import { MenuService } from './services/menu/menu.service';
@@ -30,6 +31,8 @@ import { ShopService } from './services/shop/shop.service';
 
 // Routes
 import { RoutingModule } from './routing.module';
+
+
 
 
 @NgModule({
@@ -49,7 +52,9 @@ import { RoutingModule } from './routing.module';
     ShopitemComponent,
     ModalComponent,
     ShopListItemComponent,
-    JobHistoryComponent
+    JobHistoryComponent,
+    ProjectsComponent,
+    SkillsComponent
   ],
   imports: [
     BrowserModule,
