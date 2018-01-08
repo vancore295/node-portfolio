@@ -33,7 +33,6 @@
         "@angular/router": "^4.3.6",
         "@types/jasmine": "^2.5.54",
         "@types/node": "^6.0.88",
-        "angular-font-awesome": "^3.1.1",
         "body-parser": "^1.17.2",
         "bootstrap": "^4.0.0-beta",
         "core-js": "^2.4.1",
