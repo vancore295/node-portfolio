@@ -15,7 +15,8 @@
             </div>
             <button (click)="Cart.show()" [disabled]="cart.length < 1">
 				<sub *ngIf="cart.length > 0" class="text-black">{{ cart.length }}</sub>
-                <fa name="shopping-cart" size="lg"></fa>
+                <!--<fa name="shopping-cart" size="lg"></fa>-->
+                <i class="fa fa-shopping-cart"></i>
                 <sup *ngIf="total > 0" class="text-black">{{ total | currency:'USD':true:'2.2-4'}}</sup>
             </button>
         </nav>
@@ -24,7 +25,8 @@
             <ng-container *ngIf="isLoading" class="container">
                 <div class="row">
                     <div class="d-flex justify-content-center">
-                        <fa name="cog" animation="spin" size="5x"></fa>
+                        <!--<fa name="cog" animation="spin" size="5x"></fa>-->
+                        <i class="fa fa-cogs"></i>
                     </div>
                 </div>
             </ng-container>
@@ -54,7 +56,8 @@
     </div>
     <div class="app-modal-body" *ngIf="processingOrder">
         <div class="d-flex justify-content-center">
-            <fa name="cog" animation="spin" size="3x"></fa>
+            <!--<fa name="cog" animation="spin" size="3x"></fa>-->
+            <i class="fa fa-cogs"></i>
         </div>
     </div>
     <div class="app-modal-body" *ngIf="!processingOrder && orderSuccess">
