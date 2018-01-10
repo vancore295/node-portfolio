@@ -60,8 +60,6 @@
         "@types/node": "^6.0.88",
         "codelyzer": "~3.0.1",
         "concurrently": "^3.3.0",
-        "gulp": "^3.9.1",
-        "gulp-typescript": "^3.2.3",
         "jasmine-core": "~2.6.2",
         "jasmine-spec-reporter": "~4.1.0",
         "karma": "~1.7.0",
