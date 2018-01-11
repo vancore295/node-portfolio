@@ -49,7 +49,7 @@ db.once('open', () => {
     console.log('Connected client on port %s.', chatPort);
     socket.on('message', (m: Message) => {
         console.log('[server](message): %s', JSON.stringify(m));
-        this.io.emit('message', m);
+        io.emit('message', m);
     });
 
     socket.on('disconnect', () => {
