@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 body {
     background-image: url('http://res.cloudinary.com/dm210vfbb/image/upload/v1502672149/colorful-squares_r7zwas.jpg');
     background-size: 100%, 100%;

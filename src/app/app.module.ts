@@ -3,6 +3,9 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { ChatModule } from './modules/chat/chat.module';
+import { SharedModule } from './shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 // Components
@@ -24,6 +27,7 @@ import { ShopListItemComponent } from './components/shop-list-item/shop-list-ite
 import { JobHistoryComponent } from './components/job-history/job-history.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { SkillsComponent } from './components/skills/skills.component';
+import { ChatRoomComponent } from './components/chat-room/chat-room.component';
 
 // Servics
 import { MenuService } from './services/menu/menu.service';
@@ -54,14 +58,18 @@ import { RoutingModule } from './routing.module';
     ShopListItemComponent,
     JobHistoryComponent,
     ProjectsComponent,
-    SkillsComponent
+    SkillsComponent,
+    ChatRoomComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    RoutingModule
+    RoutingModule,
+    ChatModule,
+    SharedModule,
+    BrowserAnimationsModule
     // AngularFontAwesomeModule
   ],
   providers: [
