@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 
-import { Action } from '../../model/action';
-import { Event } from '../../model/event';
-import { Message } from '../../model/message';
-import { User } from '../../model/user';
-import { SocketService } from '../../services/socket.service';
+import { Action } from '../../../../classes/action';
+import { Event } from '../../../../classes/event';
+import { Message } from '../../../../classes/message';
+import { User } from '../../../../classes/user';
+import { SocketService } from '../../../../services/chat/socket.service';
 import { DialogUserComponent } from '../dialog-user/dialog-user.component';
 
 import { DialogUserType } from '../dialog-user/dialog-user-type';
