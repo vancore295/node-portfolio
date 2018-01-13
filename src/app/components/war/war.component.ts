@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {  FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-war',
@@ -7,6 +7,7 @@ import {  FormBuilder, FormGroup } from '@angular/forms';
 })
 export class WarComponent implements OnInit {
   war: FormGroup;
+  @Output() submitMadlib = new EventEmitter<any>();s
 
   constructor(fb: FormBuilder) {
     this.war = fb.group({
@@ -32,8 +33,8 @@ export class WarComponent implements OnInit {
     this.war.reset();
   }
 
-  onSubmit(form: any): void {
-    console.log('you submitted value:', form);
+  onSubmit(lib: any): void {
+    this.submitMadlib.emit(lib);
   }
 
 }

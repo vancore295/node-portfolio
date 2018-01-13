@@ -10,15 +10,23 @@
     <a class="nav-item nav-link" id="nav-war-tab" data-toggle="tab" href="#war" role="tab" aria-controls="war-tab" aria-expanded="true">War</a>
 </nav>
 <div class="container">
-    <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="greetings" role="tabpanel" aria-labelledby="nav-greetings-tab">
-            <app-greetings></app-greetings>
+    <div class="row">
+        <div class="col-md-3">
+            <h3>See previous peoples Madlibs</h3>
+            <ng-content *ngFor="let lib of madlibs"></ng-content>
         </div>
-        <div class="tab-pane fade" id="proverbs" role="tabpanel" aria-labelledby="nav-proverbs-tab">
-            <app-proverbs></app-proverbs>
-        </div>
-        <div class="tab-pane fade" id="war" role="tabpanel" aria-labelledby="nav-war-tab">
-            <app-war></app-war>
+        <div class="col-md-9">
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="greetings" role="tabpanel" aria-labelledby="nav-greetings-tab">
+                    <app-greetings (onSubmit)="getMadlib($event)"></app-greetings>
+                </div>
+                <div class="tab-pane fade" id="proverbs" role="tabpanel" aria-labelledby="nav-proverbs-tab">
+                    <app-proverbs (onSubmit)="getMadlib($event)"></app-proverbs>
+                </div>
+                <div class="tab-pane fade" id="war" role="tabpanel" aria-labelledby="nav-war-tab">
+                    <app-war (onSubmit)="getMadlib($event)"></app-war>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {  FormBuilder, FormGroup } from '@angular/forms';
+
 
 @Component({
   selector: 'app-greetings',
@@ -8,6 +9,7 @@ import {  FormBuilder, FormGroup } from '@angular/forms';
 })
 export class GreetingsComponent implements OnInit {
   greet: FormGroup;
+  @Output() submitMadlib = new EventEmitter<any>();
 
   constructor(fb: FormBuilder) {
     this.greet = fb.group({
@@ -26,7 +28,8 @@ export class GreetingsComponent implements OnInit {
   reset(): void {
     this.greet.reset();
   }
-  onSubmit(): void {
-    console.log();
+
+  onSubmit(lib: any): void {
+    this.submitMadlib.emit(lib);
   }
 }

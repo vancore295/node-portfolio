@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {  FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -8,6 +8,7 @@ import {  FormBuilder, FormGroup } from '@angular/forms';
 })
 export class ProverbsComponent implements OnInit {
   proverbs: FormGroup;
+  @Output() submitMadlib = new EventEmitter<any>();
 
   constructor(fb: FormBuilder) {
     this.proverbs = fb.group({
@@ -32,8 +33,8 @@ export class ProverbsComponent implements OnInit {
     this.proverbs.reset();
   }
 
-  onSubmit(): void {
-    console.log();
+  onSubmit(lib: any): void {
+    this.submitMadlib.emit(lib);
   }
 
 }

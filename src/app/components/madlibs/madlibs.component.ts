@@ -55,5 +55,9 @@ export class MadlibsComponent implements OnInit {
     );
   }
 
+  getMadlib(newLib: any) {
+    const lib = newLib;
+  }
+
 
 }
