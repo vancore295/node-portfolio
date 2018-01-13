@@ -18,13 +18,13 @@
         <div class="col-md-9">
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="greetings" role="tabpanel" aria-labelledby="nav-greetings-tab">
-                    <app-greetings (onSubmit)="getMadlib($event)"></app-greetings>
+                    <app-greetings (submitMadlib)="getMadlib($event)"></app-greetings>
                 </div>
                 <div class="tab-pane fade" id="proverbs" role="tabpanel" aria-labelledby="nav-proverbs-tab">
-                    <app-proverbs (onSubmit)="getMadlib($event)"></app-proverbs>
+                    <app-proverbs (submitMadlib)="getMadlib($event)"></app-proverbs>
                 </div>
                 <div class="tab-pane fade" id="war" role="tabpanel" aria-labelledby="nav-war-tab">
-                    <app-war (onSubmit)="getMadlib($event)"></app-war>
+                    <app-war (submitMadlib)="getMadlib($event)"></app-war>
                 </div>
             </div>
         </div>
