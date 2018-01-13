@@ -14,7 +14,7 @@ export class MadlibService {
 
   constructor(private http: Http) { }
 
-  getMadLibs(): Observable<Madlib> {
+  getMadLibs(): Observable<any> {
     return this.http.get('/api/madlibs').map(res => res.json());
   }
 
