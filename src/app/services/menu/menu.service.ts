@@ -4,6 +4,8 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
+import { MenuItem } from '../../classes/menuitem';
+
 @Injectable()
 export class MenuService {
 
@@ -12,7 +14,7 @@ export class MenuService {
 
   constructor(private http: Http) { }
 
-  getMenuItems(): Observable<any> {
+  getMenuItems(): Observable<MenuItem> {
     return this.http.get('/api/menuitems').map(res => res.json());
   }
 
