@@ -32,6 +32,7 @@ import { ChatRoomComponent } from './components/chat-room/chat-room.component';
 // Servics
 import { MenuService } from './services/menu/menu.service';
 import { ShopService } from './services/shop/shop.service';
+import { MadlibService } from './services/madlibs/madlib.service';
 
 // Routes
 import { RoutingModule } from './routing.module';
@@ -74,7 +75,8 @@ import { RoutingModule } from './routing.module';
   ],
   providers: [
     MenuService,
-    ShopService
+    ShopService,
+    MadlibService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

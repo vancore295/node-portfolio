@@ -8,7 +8,7 @@ export default function setMadlibRoutes(app) {
     const madLbCtrl = new MadlibCOntroller();
 
     router.route('/madlibs').get(madLbCtrl.getAll);
-    router.route('madlibs').post(madLbCtrl.insert);
+    router.route('/madlibs').post(madLbCtrl.insert);
 
     app.use('/api', router);
 }
