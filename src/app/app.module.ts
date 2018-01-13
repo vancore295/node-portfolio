@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { ChatModule } from './modules/chat/chat.module';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 // Components
 import { AppComponent } from './app.component';
@@ -70,8 +70,8 @@ import { RoutingModule } from './routing.module';
     RoutingModule,
     ChatModule,
     SharedModule,
-    BrowserAnimationsModule
-    // AngularFontAwesomeModule
+    BrowserAnimationsModule,
+    AngularFontAwesomeModule
   ],
   providers: [
     MenuService,
