@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import {  FormBuilder, FormGroup } from '@angular/forms';
+import {  FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -9,16 +9,21 @@ import {  FormBuilder, FormGroup } from '@angular/forms';
 })
 export class GreetingsComponent implements OnInit {
   greet: FormGroup;
+  submission: FormGroup;
   @Output() submitMadlib = new EventEmitter<any>();
 
   constructor(fb: FormBuilder) {
     this.greet = fb.group({
-      'noun_plural': [''],
-      'occupation': [''],
-      'animal_plural': [''],
-      'place': [''],
-      'verb': [''],
-      'noun': ['']
+      noun_plural: '',
+      occupation: '',
+      animal_plural: '',
+      place: '',
+      verb: '',
+      noun: ''
+    });
+    this.submission = fb.group({
+      'creator': [null, Validators.required],
+      'madlib': {value: 'greetings', disabled: true }
     });
   }
 
@@ -29,7 +34,7 @@ export class GreetingsComponent implements OnInit {
     this.greet.reset();
   }
 
-  onSubmit(lib: any): void {
-    this.submitMadlib.emit(lib);
+  onSubmit(lib: FormGroup): void {
+    this.submitMadlib.emit(lib.value);
   }
 }

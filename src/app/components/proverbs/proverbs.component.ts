@@ -33,8 +33,8 @@ export class ProverbsComponent implements OnInit {
     this.proverbs.reset();
   }
 
-  onSubmit(lib: any): void {
-    this.submitMadlib.emit(lib);
+  onSubmit(lib: FormGroup): void {
+    this.submitMadlib.emit(lib.value);
   }
 
 }

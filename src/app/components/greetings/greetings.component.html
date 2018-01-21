@@ -5,30 +5,30 @@
                 <div class="col-md-4">
                     <div class="col form-group">
                         <label>Noun(plural)</label>
-                        <input class="form-control" type="text" [formControl]="greet.controls['noun_plural']" placeholder="Noun(plural)" id="madinput">
+                        <input class="form-control" type="text" formControlName="noun_plural" placeholder="Noun(plural)" id="madinput">
                     </div>
                     <div class="col form-group">
                         <label>Occupation</label>
-                        <input class="form-control" type="text" [formControl]="greet.controls['occupation']" placeholder="Occupation">
+                        <input class="form-control" type="text" formControlName="occupation" placeholder="Occupation">
                     </div>
                     <div class="col form-group">
                         <label>Animal(plural)</label>
-                        <input class="form-control" type="text" [formControl]="greet.controls['animal_plural']" placeholder="Animal(plural)">
+                        <input class="form-control" type="text" formControlName="animal_plural" placeholder="Animal(plural)">
                     </div>
                 </div>
 
                 <div class="col-md-4">
                     <div class="col form-group">
                         <label>Place</label>
-                        <input class="form-control" type="text" [formControl]="greet.controls['place']" placeholder="Place">
+                        <input class="form-control" type="text" formControlName="place" placeholder="Place">
                     </div>
                     <div class="col form-group">
                         <label>Verb</label>
-                        <input class="form-control" type="text" [formControl]="greet.controls['verb']" placeholder="Verb">
+                        <input class="form-control" type="text" formControlName="verb" placeholder="Verb">
                     </div>
                     <div class="col form-group">
                         <label>Noun</label>
-                        <input class="form-control" type="text" [formControl]="greet.controls['noun']" placeholder="Noun">
+                        <input class="form-control" type="text" formControlName="noun" placeholder="Noun">
                     </div>
                 </div>
 
@@ -39,16 +39,38 @@
                         </div>
                         <div class="card-body">
                             <p class="card-text text-left">
-                                In the book <i>War of the <span><b>{{ greet.controls['noun_plural'].value }}</b></span></i>, the main character is an anonymous <span><b>{{ greet.controls['occupation'].value }}</b></span> who records the arrival of a <span>{{ greet.controls['animal_plural'].value }}</span>                                in
-                                <span><b>{{ greet.controls['place'].value }}</b>.</span> Needless to say, havoc reigns as the <span><b>{{ greet.controls['animal_plural'].value }}</b></span> continue to
-                                <span><b>{{ greet.controls['verb'].value }}</b></span> everthing in sight, until they are killed by the common <b>{{ greet.controls['noun'].value }}</b>.
+                                In the book <i>War of the <span><b>{{ greet.controls.noun_plural.value }}</b></span></i>, the main character is an anonymous <span><b>{{ greet.controls.occupation.value }}</b></span> who records the arrival of a <span>{{ greet.controls.animal_plural.value }}</span>in
+                                <span><b>{{ greet.controls.place.value }}</b>.</span> Needless to say, havoc reigns as the <span><b>{{ greet.controls.animal_plural.value }}</b></span> continue to
+                                <span><b>{{ greet.controls.verb.value }}</b></span> everthing in sight, until they are killed by the common <b>{{ greet.controls.noun.value }}</b>.
                             </p>
                         </div>
                     </div>
                     <button type="button" class="btn btn-danger text-white" (click)="reset()">Reset</button>
-                    <button type="submit" (click)="onSubmit(greet)" class="btn btn-success">Save</button>
+                    <button type="submit" (click)="saveModal.show()" class="btn btn-success">Save</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
+
+<app-modal #saveModal>
+    <div class="app-modal-header">
+        Save Madlib
+    </div>
+    <div class="app-modal-body">
+        <form [formGroup]="submission">
+            <div class="form-group">
+                <label>Your name</label>
+                <input class="form-control" type="text" formControlName="creator" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+                <label>Madlib</label>
+                <input class="form-control" type="text" formControlName="madlib">
+            </div>
+        </form>
+    </div>
+    <div class="app-modal-footer">
+        <button type="button" class="btn btn-primary" (click)="saveModal.hide()">Close</button>
+        <button type="submit" (click)="onSubmit(greet)" class="btn btn-success">Save</button>
+    </div>
+</app-modal>
