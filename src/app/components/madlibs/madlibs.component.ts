@@ -33,12 +33,12 @@ export class MadlibsComponent implements OnInit {
     );
   }
 
-  saveMadlib(lib: any) {
+  saveMadlib(lib: any, user) {
     this.saving = true;
     const newMadLib = new Madlib();
-    newMadLib.creator = lib.creator;
-    newMadLib.madlib = lib.madlib;
-    newMadLib.data = lib.data;
+    newMadLib.creator = user.creator;
+    newMadLib.madlib = user.madlib;
+    newMadLib.data = lib;
 
     this.madlibService.saveMadlib(newMadLib).subscribe(
       data => {
@@ -55,8 +55,10 @@ export class MadlibsComponent implements OnInit {
     );
   }
 
-  getMadlib(newLib: any) {
-    const lib = newLib;
+  getMadlib(data: any) {
+    const madlib = data.lib;
+    const user = data.user;
+    this.saveMadlib(madlib, user);
   }
 
 }

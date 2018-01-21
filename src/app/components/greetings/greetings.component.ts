@@ -22,8 +22,8 @@ export class GreetingsComponent implements OnInit {
       noun: ''
     });
     this.submission = fb.group({
-      'creator': [null, Validators.required],
-      'madlib': {value: 'greetings', disabled: true }
+      'creator': '',
+      'madlib': 'greetings'
     });
   }
 
@@ -34,7 +34,12 @@ export class GreetingsComponent implements OnInit {
     this.greet.reset();
   }
 
-  onSubmit(lib: FormGroup): void {
-    this.submitMadlib.emit(lib.value);
+  onSubmit(lib: FormGroup, user: FormGroup): void {
+    const data = {
+      lib: lib.value,
+      user: user.value
+    };
+
+    this.submitMadlib.emit(data);
   }
 }

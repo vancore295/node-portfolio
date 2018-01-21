@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <button type="button" class="btn btn-danger text-white" (click)="reset()">Reset</button>
-                    <button type="submit" (click)="saveModal.show()" class="btn btn-success">Save</button>
+                    <button type="button" class="btn btn-success" (click)="saveModal.show()">Save</button>
                 </div>
             </div>
         </form>
@@ -65,12 +65,12 @@
             </div>
             <div class="form-group">
                 <label>Madlib</label>
-                <input class="form-control" type="text" formControlName="madlib">
+                <input class="form-control" type="text" formControlName="madlib" [disabled]="true">
             </div>
         </form>
     </div>
     <div class="app-modal-footer">
         <button type="button" class="btn btn-primary" (click)="saveModal.hide()">Close</button>
-        <button type="submit" (click)="onSubmit(greet)" class="btn btn-success">Save</button>
+        <button type="button" class="btn btn-success" (click)="onSubmit(greet, submission)">Save</button>
     </div>
 </app-modal>
