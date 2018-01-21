@@ -5,49 +5,49 @@
                 <div class="col-md-4">
                     <div class="col form-group">
                         <label>Noun</label>
-                        <input class="form-control" type="text" [formControl]="proverbs.controls['noun1']" placeholder="Noun">
+                        <input class="form-control" type="text" formControlName="noun1" placeholder="Noun">
                     </div>
                     <div class="col form-group">
                         <label>Number</label>
-                        <input class="form-control" type="text" [formControl]="proverbs.controls['number']" placeholder="Number">
+                        <input class="form-control" type="text" formControlName="number" placeholder="Number">
                     </div>
                     <div class="col form-group">
                         <label>Noun</label>
-                        <input class="form-control" type="text" [formControl]="proverbs.controls['noun2']" placeholder="Noun">
+                        <input class="form-control" type="text" formControlName="noun2" placeholder="Noun">
                     </div>
                     <div class="col form-group">
                         <label>Adjective</label>
-                        <input class="form-control" type="text" [formControl]="proverbs.controls['adj1']" placeholder="Adjective">
+                        <input class="form-control" type="text" formControlName="adj1" placeholder="Adjective">
                     </div>
                     <div class="col form-group">
                         <label>Verb ending in s</label>
-                        <input class="form-control" type="text" [formControl]="proverbs.controls['verbs1']" placeholder="Verb ending in s">
+                        <input class="form-control" type="text" formControlName="verbs1" placeholder="Verb ending in s">
                     </div>
                     <div class="col form-group">
                         <label>Adjective</label>
-                        <input class="form-control" type="text" [formControl]="proverbs.controls['adj2']" placeholder="Adjective">
+                        <input class="form-control" type="text" formControlName="adj2" placeholder="Adjective">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="col form-group">
                         <label>Noun</label>
-                        <input class="form-control" type="text" [formControl]="proverbs.controls['noun3']" placeholder="Noun">
+                        <input class="form-control" type="text" formControlName="noun3" placeholder="Noun">
                     </div>
                     <div class="col form-group">
                         <label>Adjective</label>
-                        <input class="form-control" type="text" [formControl]="proverbs.controls['adj3']" placeholder="Adjective">
+                        <input class="form-control" type="text" formControlName="adj3" placeholder="Adjective">
                     </div>
                     <div class="col form-group">
                         <label>Noun</label>
-                        <input class="form-control" type="text" [formControl]="proverbs.controls['noun4']" placeholder="Noun">
+                        <input class="form-control" type="text" formControlName="noun4" placeholder="Noun">
                     </div>
                     <div class="col form-group">
                         <label>Noun</label>
-                        <input class="form-control" type="text" [formControl]="proverbs.controls['noun5']" placeholder="Noun">
+                        <input class="form-control" type="text" formControlName="noun5" placeholder="Noun">
                     </div>
                     <div class="col form-group">
                         <label>Verb ending in s</label>
-                        <input class="form-control" type="text" [formControl]="proverbs.controls['verbs2']" placeholder="Verb ending in s">
+                        <input class="form-control" type="text" formControlName="verbs2" placeholder="Verb ending in s">
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -56,17 +56,40 @@
                             Ancient Proverbs
                         </div>
                         <div class="card-body">
-                            <p class="card-text">"A/An <span><b>{{ proverbs.controls['noun1'].value }}</b></span> in the hand is worth <span><b>{{ proverbs.controls['number'].value }}</b></span> in the
-                                <span><b>{{ proverbs.controls['noun2'].value }}</b></span>."</p>
-                            <p class="card-text">"A/An <span><b>{{ proverbs.controls['adj1'].value }}</b></span> mouth <span><b>{{ proverbs.controls['verbs1'].value }}</b></span> no feet."</p>
-                            <p class="card-text">"A/An <span><b>{{ proverbs.controls['adj2'].value }}</b></span> <span><b>{{ proverbs.controls['noun3'].value }}</b></span> believes anything, but a <span><b>{{ proverbs.controls['adj3'].value }}</b></span> <span><b>{{ proverbs.controls['noun3'].value }}</b></span>                                gives though to his <span><b>{{ proverbs.controls['noun4'].value }}</b></span>."</p>
-                            <p class="card-text">"A <span><b>{{ proverbs.controls['noun5'].value }}</b></span> in time <span><b>{{ proverbs.controls['verbs2'].value }}</b></span>."</p>
+                            <p class="card-text">"A/An <span><b>{{ proverbs.controls.noun1.value }}</b></span> in the hand is worth <span><b>{{ proverbs.controls.number.value }}</b></span> in the
+                                <span><b>{{ proverbs.controls.noun2.value }}</b></span>."</p>
+                            <p class="card-text">"A/An <span><b>{{ proverbs.controls.adj1.value }}</b></span> mouth <span><b>{{ proverbs.controls.verbs1.value }}</b></span> no feet."</p>
+                            <p class="card-text">"A/An <span><b>{{ proverbs.controls.adj2.value }}</b></span> <span><b>{{ proverbs.controls.noun3.value }}</b></span> believes anything, but a <span><b>{{ proverbs.controls.adj3.value }}</b></span> <span><b>{{ proverbs.controls.noun3.value }}</b></span>gives
+                                though to his <span><b>{{ proverbs.controls.noun4.value }}</b></span>."</p>
+                            <p class="card-text">"A <span><b>{{ proverbs.controls.noun5.value }}</b></span> in time <span><b>{{ proverbs.controls.verbs2.value }}</b></span>."</p>
                         </div>
                     </div>
                     <button type="button" class="btn btn-danger text-white" (click)="reset()">Reset</button>
-                    <button type="submit" (click)="onSubmit()" class="btn btn-success">Save</button>
+                    <button type="submit" class="btn btn-success" (click)="saveModal.show()">Save</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
+
+<app-modal #saveModal>
+    <div class="app-modal-header">
+        Save Madlib
+    </div>
+    <div class="app-modal-body">
+        <form [formGroup]="submission">
+            <div class="form-group">
+                <label>Your name</label>
+                <input class="form-control" type="text" formControlName="creator" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+                <label>Madlib</label>
+                <input class="form-control" type="text" formControlName="madlib">
+            </div>
+        </form>
+    </div>
+    <div class="app-modal-footer">
+        <button type="button" class="btn btn-primary" (click)="saveModal.hide()">Close</button>
+        <button type="button" class="btn btn-success" (click)="onSubmit(proverbs, submission)">Save</button>
+    </div>
+</app-modal>

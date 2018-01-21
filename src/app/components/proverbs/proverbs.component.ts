@@ -8,21 +8,26 @@ import {  FormBuilder, FormGroup } from '@angular/forms';
 })
 export class ProverbsComponent implements OnInit {
   proverbs: FormGroup;
+  submission: FormGroup;
   @Output() submitMadlib = new EventEmitter<any>();
 
   constructor(fb: FormBuilder) {
     this.proverbs = fb.group({
-      'noun1': [''],
-      'number': [''],
-      'noun2': [''],
-      'adj1': [''],
-      'verbs1': [''],
-      'adj2': [''],
-      'noun3': [''],
-      'adj3': [''],
-      'noun4': [''],
-      'noun5': [''],
-      'verbs2': ['']
+      noun1: [''],
+      number: [''],
+      noun2: [''],
+      adj1: [''],
+      verbs1: [''],
+      adj2: [''],
+      noun3: [''],
+      adj3: [''],
+      noun4: [''],
+      noun5: [''],
+      verbs2: ['']
+    });
+    this.submission = fb.group({
+      'creator': '',
+      'madlib': [{value: 'Ancient Proverbs', disabled: true}]
     });
   }
 
@@ -33,8 +38,13 @@ export class ProverbsComponent implements OnInit {
     this.proverbs.reset();
   }
 
-  onSubmit(lib: FormGroup): void {
-    this.submitMadlib.emit(lib.value);
+  onSubmit(lib: FormGroup, user: FormGroup): void {
+    const data = {
+      lib: lib.value,
+      user: user.value
+    };
+
+    this.submitMadlib.emit(data);
   }
 
 }

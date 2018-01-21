@@ -5,53 +5,53 @@
                 <div class="col-md-4">
                     <div class="col form-group">
                         <label>Noun</label>
-                        <input class="form-control" type="text" [formControl]="war.controls['noun1']" placeholder="Noun">
+                        <input class="form-control" type="text" formControlName="noun1" placeholder="Noun">
                     </div>
                     <div class="col form-group">
                         <label>Noun</label>
-                        <input class="form-control" type="text" [formControl]="war.controls['noun2']" placeholder="Noun">
+                        <input class="form-control" type="text" formControlName="noun2" placeholder="Noun">
                     </div>
                     <div class="col form-group">
                         <label>Noun</label>
-                        <input class="form-control" type="text" [formControl]="war.controls['noun3']" placeholder="Noun">
+                        <input class="form-control" type="text" formControlName="noun3" placeholder="Noun">
                     </div>
                     <div class="col form-group">
                         <label>Occupation</label>
-                        <input class="form-control" type="text" [formControl]="war.controls['occupation']" placeholder="Occupation">
+                        <input class="form-control" type="text" formControlName="occupation" placeholder="Occupation">
                     </div>
                     <div class="col form-group">
                         <label>Verb</label>
-                        <input class="form-control" type="text" [formControl]="war.controls['verb1']" placeholder="Verb">
+                        <input class="form-control" type="text" formControlName="verb1" placeholder="Verb">
                     </div>
                     <div class="col form-group">
                         <label>Place</label>
-                        <input class="form-control" type="text" [formControl]="war.controls['place']" placeholder="Place">
+                        <input class="form-control" type="text" formControlName="place" placeholder="Place">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="col form-group">
                         <label>Verb ending in "ing"</label>
-                        <input class="form-control" type="text" [formControl]="war.controls['verbing1']" placeholder="Verb ending in ing">
+                        <input class="form-control" type="text" formControlName="verbing1" placeholder="Verb ending in ing">
                     </div>
                     <div class="col form-group">
                         <label>Noun</label>
-                        <input class="form-control" type="text" [formControl]="war.controls['noun4']" placeholder="Noun">
+                        <input class="form-control" type="text" formControlName="noun4" placeholder="Noun">
                     </div>
                     <div class="col form-group">
                         <label>Verb ending in "ing"</label>
-                        <input class="form-control" type="text" [formControl]="war.controls['verbing2']" placeholder="Verb ending in ing">
+                        <input class="form-control" type="text" formControlName="verbing2" placeholder="Verb ending in ing">
                     </div>
                     <div class="col form-group">
                         <label>Noun(plural)</label>
-                        <input class="form-control" type="text" [formControl]="war.controls['noun_plural']" placeholder="Noun(plural)">
+                        <input class="form-control" type="text" formControlName="noun_plural" placeholder="Noun(plural)">
                     </div>
                     <div class="col form-group">
                         <label>Noun</label>
-                        <input class="form-control" type="text" [formControl]="war.controls['noun5']" placeholder="Noun">
+                        <input class="form-control" type="text" formControlName="noun5" placeholder="Noun">
                     </div>
                     <div class="col form-group">
                         <label>Emotion</label>
-                        <input class="form-control" type="text" [formControl]="war.controls['emotion']" placeholder="Emotion">
+                        <input class="form-control" type="text" formControlName="emotion" placeholder="Emotion">
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -60,21 +60,43 @@
                             War
                         </div>
                         <div class="card-body">
-                            <p class="card-text">It was durring the <span><b>{{ war.controls['noun1'].value }}</b></span> when I was running through a
-                                <span><b>{{ war.controls['noun2'].value }}</b></span> when a <span><b>{{ war.controls['noun3'].value }}</b></span> went off next to my platoon. Our
-                                <span><b>{{ war.controls['occupation'].value }}</b></span> yelled for us to <span><b>{{ war.controls['verb1'].value }}</b></span> to the nearest <span><b>{{ war.controls['place'].value }}</b></span> we could find. When
-                                we got to the <span><b>{{ war.controls['place'].value }}</b></span> we <span><b>{{ war.controls['verbing1'].value }}</b></span>to start a fire. As were starting the fire the enemy saw the
-                                <span><b>{{ war.controls['noun4'].value }}</b></span> from the fire and started <span><b>{{ war.controls['verbing2'].value }}</b></span>
-                                <span><b>{{ war.controls['noun_plural'].value }}</b></span> at us. We all quickly ducked behind the <span><b>{{ war.controls['noun5'].value }}</b></span> at the <span><b>{{ war.controls['place'].value }}</b></span> and
-                                returned fire. We quickly eliminated the enemy and were
-                                <span><b>{{ war.controls['emotion'].value }}</b></span>
+                            <p class="card-text">It was durring the <span><b>{{ war.controls.noun1.value }}</b></span> when I was running through a
+                                <span><b>{{ war.controls.noun2.value }}</b></span> when a <span><b>{{ war.controls.noun3.value }}</b></span> went off next to my platoon. Our
+                                <span><b>{{ war.controls.occupation.value }}</b></span> yelled for us to <span><b>{{ war.controls.verb1.value }}</b></span> to the nearest <span><b>{{ war.controls.place.value }}</b></span> we could find. When we got to
+                                the <span><b>{{ war.controls.place.value }}</b></span> we <span><b>{{ war.controls.verbing1.value }}</b></span>to start a fire. As were starting the fire the enemy saw the
+                                <span><b>{{ war.controls.noun4.value }}</b></span> from the fire and started <span><b>{{ war.controls.verbing2.value }}</b></span>
+                                <span><b>{{ war.controls.noun_plural.value }}</b></span> at us. We all quickly ducked behind the <span><b>{{ war.controls.noun5.value }}</b></span> at the <span><b>{{ war.controls.place.value }}</b></span> and returned
+                                fire. We quickly eliminated the enemy and were
+                                <span><b>{{ war.controls.emotion.value }}</b></span>
                             </p>
                         </div>
                     </div>
                     <button type="button" class="btn btn-danger text-white" (click)="reset()">Reset</button>
-                    <button type="submit" (click)="onSubmit(war.value)" class="btn btn-success">Save</button>
+                    <button type="submit" class="btn btn-success" (click)="saveModal.show()">Save</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
+
+<app-modal #saveModal>
+    <div class="app-modal-header">
+        Save Madlib
+    </div>
+    <div class="app-modal-body">
+        <form [formGroup]="submission">
+            <div class="form-group">
+                <label>Your name</label>
+                <input class="form-control" type="text" formControlName="creator" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+                <label>Madlib</label>
+                <input class="form-control" type="text" formControlName="madlib">
+            </div>
+        </form>
+    </div>
+    <div class="app-modal-footer">
+        <button type="button" class="btn btn-primary" (click)="saveModal.hide()">Close</button>
+        <button type="button" class="btn btn-success" (click)="onSubmit(war, submission)">Save</button>
+    </div>
+</app-modal>

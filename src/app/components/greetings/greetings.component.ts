@@ -14,16 +14,16 @@ export class GreetingsComponent implements OnInit {
 
   constructor(fb: FormBuilder) {
     this.greet = fb.group({
-      noun_plural: '',
-      occupation: '',
-      animal_plural: '',
-      place: '',
-      verb: '',
-      noun: ''
+      noun_plural: [''],
+      occupation: [''],
+      animal_plural: [''],
+      place: [''],
+      verb: [''],
+      noun: ['']
     });
     this.submission = fb.group({
       'creator': '',
-      'madlib': 'greetings'
+      'madlib': [{value: 'Greetings Earthlings', disabled: true}]
     });
   }
 
