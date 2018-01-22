@@ -1,6 +1,21 @@
 import BaseCtrl from './_abstracts/base';
-import Madlib from '../models/madlib';
+import MadLib from '../models/madlib';
 
 export default class MadlibCOntroller extends BaseCtrl {
-    model = Madlib;
+    constructor() {
+        super();
+    }
+    model = MadLib;
+
+    findByName = function(req, res) {
+        const query = req.query;
+
+        MadLib.findOne(query, function (err, obj) {
+            if (err) {
+                return res.json(err);
+            } else {
+                return res.json(obj);
+            }
+        });
+    };
 }

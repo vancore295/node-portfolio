@@ -22,7 +22,7 @@ export class MadlibsComponent implements OnInit {
   constructor(private madlibService: MadlibService, private http: Http) { }
 
   ngOnInit() {
-    this.getMadlibs();
+    // this.getMadlibs();
   }
 
   getMadlibs() {

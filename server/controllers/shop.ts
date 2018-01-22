@@ -6,8 +6,11 @@ export default class ShopItemCtrl extends BaseCtrl {
 
     findByType = (req, res) => {
         this.model.findOne({ type: req.params.type }, (err, obj) => {
-            if (err) { return console.error(err); }
-            res.json(obj);
+            if (err) {
+                return console.error(err);
+            } else {
+                res.json(obj);
+            }
         });
     }
 

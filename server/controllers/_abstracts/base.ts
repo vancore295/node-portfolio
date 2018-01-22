@@ -4,17 +4,26 @@ abstract class BaseCtrl {
 
       // Get all
       getAll = (req, res) => {
-        this.model.find({}, (err, docs) => {
-          if (err) { return console.error(err); }
-          res.json(docs);
+        console.log(req.query);
+        this.model.find(req.query, (err, docs) => {
+          if (err) {
+            return console.error(err);
+          } else {
+            console.log(docs);
+            res.json(docs);
+          }
         });
       }
 
       // Count all
       count = (req, res) => {
         this.model.count((err, count) => {
-          if (err) { return console.error(err); }
-          res.json(count);
+          if (err) {
+            return console.error(err);
+          } else {
+            console.log(count);
+            res.json(count);
+          }
         });
       }
 
@@ -28,32 +37,45 @@ abstract class BaseCtrl {
           }
           if (err) {
             return console.error(err);
+          } else {
+            console.log(item);
+            res.json(item);
           }
-          res.status(200).json(item);
         });
       }
 
       // Get by id
       get = (req, res) => {
-        this.model.findOne({ _id: req.params.id }, (err, obj) => {
-          if (err) { return console.error(err); }
-          res.json(obj);
+        const query = req.query;
+        this.model.findOne(query, (err, obj) => {
+          if (err) {
+            return console.error(err);
+          } else {
+            console.log(obj);
+            res.json(obj);
+          }
         });
       }
 
       // Update by id
       update = (req, res) => {
         this.model.findOneAndUpdate({ _id: req.params.id }, req.body, (err) => {
-          if (err) { return console.error(err); }
-          res.sendStatus(200);
+          if (err) {
+            return console.error(err);
+        } else {
+          res.json(200);
+        }
         });
       }
 
       // Delete by id
       delete = (req, res) => {
         this.model.findOneAndRemove({ _id: req.params.id }, (err) => {
-          if (err) { return console.error(err); }
-          res.sendStatus(200);
+          if (err) {
+            return console.error(err);
+          } else {
+            res.json(200);
+          }
         });
       }
     }

@@ -6,6 +6,6 @@ const madlibSchema = new mongoose.Schema({
     data: Object
 });
 
-const Madlib = mongoose.model('Madlib', madlibSchema);
+const MadLib = mongoose.model('MadLib', madlibSchema);
 
-export default Madlib;
+export default MadLib;
