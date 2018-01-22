@@ -1,6 +1,8 @@
-<div *ngIf="madlibs.length > 0">
-    {{madblis}}
-</div>
+<ng-container *ngIf="!isLoading">
+    <app-madlib-list-item *ngFor="let lib of madlibs" [madlib]="lib">
+
+    </app-madlib-list-item>
+</ng-container>
 
 
 <div class="card border-primary">

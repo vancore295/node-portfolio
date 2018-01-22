@@ -10,7 +10,7 @@ export default class MadlibCOntroller extends BaseCtrl {
     findByName = function(req, res) {
         const query = req.query;
 
-        MadLib.findOne(query, function (err, obj) {
+        MadLib.find(query, function (err, obj) {
             if (err) {
                 return res.json(err);
             } else {
