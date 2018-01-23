@@ -1,64 +1,74 @@
-<ng-container *ngIf="!isLoading">
-    <app-madlib-list-item *ngFor="let lib of madlibs" [madlib]="lib">
+<div class="row">
+    <!--<div class="col-md-4">
+        <ng-container *ngIf="!isLoading">
+            <app-madlib-list-item *ngFor="let lib of madlibs" [madlib]="lib">
 
-    </app-madlib-list-item>
-</ng-container>
-
-
-<div class="card border-primary">
-    <div class="card-block">
-        <form [formGroup]="greet" ngSubmint="onSubmit(greet.value)">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="col form-group">
-                        <label>Noun(plural)</label>
-                        <input class="form-control" type="text" formControlName="noun_plural" placeholder="Noun(plural)" id="madinput">
-                    </div>
-                    <div class="col form-group">
-                        <label>Occupation</label>
-                        <input class="form-control" type="text" formControlName="occupation" placeholder="Occupation">
-                    </div>
-                    <div class="col form-group">
-                        <label>Animal(plural)</label>
-                        <input class="form-control" type="text" formControlName="animal_plural" placeholder="Animal(plural)">
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="col form-group">
-                        <label>Place</label>
-                        <input class="form-control" type="text" formControlName="place" placeholder="Place">
-                    </div>
-                    <div class="col form-group">
-                        <label>Verb</label>
-                        <input class="form-control" type="text" formControlName="verb" placeholder="Verb">
-                    </div>
-                    <div class="col form-group">
-                        <label>Noun</label>
-                        <input class="form-control" type="text" formControlName="noun" placeholder="Noun">
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card border-info">
-                        <div class="card-header bg-info text-white">
-                            Greetings Earthlings
+            </app-madlib-list-item>
+        </ng-container>
+    </div>-->
+    <div class="col-md-8">
+        <div class="card border-primary">
+            <div class="card-block">
+                <form [formGroup]="greet" ngSubmint="onSubmit(greet.value)">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col form-group">
+                                <label>Noun(plural)</label>
+                                <input class="form-control" type="text" formControlName="noun_plural" placeholder="Noun(plural)" id="madinput">
+                            </div>
+                            <div class="col form-group">
+                                <label>Occupation</label>
+                                <input class="form-control" type="text" formControlName="occupation" placeholder="Occupation">
+                            </div>
+                            <div class="col form-group">
+                                <label>Animal(plural)</label>
+                                <input class="form-control" type="text" formControlName="animal_plural" placeholder="Animal(plural)">
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <p class="card-text text-left">
-                                In the book <i>War of the <span><b>{{ greet.controls.noun_plural.value }}</b></span></i>, the main character is an anonymous <span><b>{{ greet.controls.occupation.value }}</b></span> who records the arrival of a <span>{{ greet.controls.animal_plural.value }}</span>in
-                                <span><b>{{ greet.controls.place.value }}</b>.</span> Needless to say, havoc reigns as the <span><b>{{ greet.controls.animal_plural.value }}</b></span> continue to
-                                <span><b>{{ greet.controls.verb.value }}</b></span> everthing in sight, until they are killed by the common <b>{{ greet.controls.noun.value }}</b>.
-                            </p>
+
+                        <div class="col-md-4">
+                            <div class="col form-group">
+                                <label>Place</label>
+                                <input class="form-control" type="text" formControlName="place" placeholder="Place">
+                            </div>
+                            <div class="col form-group">
+                                <label>Verb</label>
+                                <input class="form-control" type="text" formControlName="verb" placeholder="Verb">
+                            </div>
+                            <div class="col form-group">
+                                <label>Noun</label>
+                                <input class="form-control" type="text" formControlName="noun" placeholder="Noun">
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card border-info">
+                                <div class="card-header bg-info text-white">
+                                    Greetings Earthlings
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text text-left">
+                                        In the book <i>War of the <span><b>{{ greet.controls.noun_plural.value }}</b></span></i>, the main character is an anonymous <span><b>{{ greet.controls.occupation.value }}</b></span> who records the arrival of a
+                                        <span>{{ greet.controls.animal_plural.value }}</span>in
+                                        <span><b>{{ greet.controls.place.value }}</b>.</span> Needless to say, havoc reigns as the <span><b>{{ greet.controls.animal_plural.value }}</b></span> continue to
+                                        <span><b>{{ greet.controls.verb.value }}</b></span> everthing in sight, until they are killed by the common <b>{{ greet.controls.noun.value }}</b>.
+                                    </p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-danger text-white" (click)="reset()">Reset</button>
+                            <button type="button" class="btn btn-success" (click)="saveModal.show()">Save</button>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-danger text-white" (click)="reset()">Reset</button>
-                    <button type="button" class="btn btn-success" (click)="saveModal.show()">Save</button>
-                </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
 </div>
+
+
+
+
+
 
 <app-modal #saveModal>
     <div class="app-modal-header">

@@ -9,11 +9,13 @@ export class MadlibListItemComponent implements OnInit {
   @Input() madlib: any;
   @Output() data: any;
   @Output() selectMadlib = new EventEmitter<any>();
+  madlibkeys = [];
 
 
   constructor() { }
 
   ngOnInit() {
+    this.madlibkeys = Object.keys(this.madlib.data);
   }
 
   select(data: any): void {
