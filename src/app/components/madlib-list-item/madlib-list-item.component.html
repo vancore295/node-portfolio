@@ -1,21 +1,20 @@
 <div class="row">
     <div class="col-md-12">
-        <nav class="nav nav-tabs nac fill justify-content-center" id="oldgreetings" role="tablist">
-            <a *ngFor="let" </nav>
-                <div class="card border-primary">
-                    <div class="card-header bg-primary text-white">
-                        {{ madlib.creator }}'s Madlib
-                    </div>
-                    <div class="card-body">
-                        <!--<ng-container class="card-text text-left">
+
+        <div class="card border-primary">
+            <div class="card-header bg-primary text-white">
+                {{ madlib.creator }}'s Madlib
+            </div>
+            <div class="card-body">
+                <ng-container class="card-text text-left">
                     <ul>
                         <li *ngFor="let key of madlibkeys">
                             {{madlib.data[key]}}
                         </li>
                     </ul>
-                </ng-container>-->
-                        <button class="btn btn-primary float-right" (click)="select(madlib)"> See for youself</button>
-                    </div>
-                </div>
+                </ng-container>
+                <button class="btn btn-primary float-right" (click)="select(madlib)"> See for youself</button>
+            </div>
+        </div>
     </div>
 </div>

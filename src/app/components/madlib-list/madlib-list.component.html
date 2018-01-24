@@ -1,0 +1,13 @@
+<nav class="nav nav-tabs nac fill justify-content-center" id="oldgreetings" role="tablist">
+    <a *ngFor="let lib of madlibs" class="nav-item nav-link" id="nav-{{lib._id}}" data-toggle="tab" href="#{{lib._id}}" role="tab">{{lib.creator}}'s Madlib</a>
+</nav>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="tab-content" id="{{lib._id}}" id="nav-tabContent">
+            <div class="tab-pane" *ngFor="let lib of madlibs" id="{{lib._id}}">
+                <app-madlib-list-item [madlib]="lib"></app-madlib-list-item>
+            </div>
+        </div>
+    </div>
+</div>
