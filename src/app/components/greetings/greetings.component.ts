@@ -36,7 +36,7 @@ export class GreetingsComponent implements OnInit {
 
     this.subsrciption = this.madlibService.receiveMadlib().subscribe(
       madlib => {
-        this.greet.setValue(madlib.data);
+        this.setMadlib(madlib);
       });
   }
 
@@ -62,7 +62,15 @@ export class GreetingsComponent implements OnInit {
       user: user.value
     };
 
+    data.user.madlib = 'greetings';
+
     this.submitMadlib.emit(data);
+  }
+
+  setMadlib(madlib: any): void {
+    if (madlib.madlib === 'greetings') {
+      this.greet.setValue(madlib.data);
+    }
   }
 
 
