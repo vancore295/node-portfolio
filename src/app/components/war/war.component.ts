@@ -1,5 +1,11 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {  FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { Subscription } from 'rxjs/Subscription';
+import { error } from 'util';
+
+import { MadlibService } from '../../services/madlibs/madlib.service';
+
 @Component({
   selector: 'app-war',
   templateUrl: './war.component.html',
@@ -9,8 +15,11 @@ export class WarComponent implements OnInit {
   war: FormGroup;
   submission: FormGroup;
   @Output() submitMadlib = new EventEmitter<any>();
+  madlibs: any[] = [];
+  isLoading = true;
+  subsrciption: Subscription;
 
-  constructor(fb: FormBuilder) {
+  constructor(fb: FormBuilder, private madlibService: MadlibService) {
     this.war = fb.group({
       noun1: '',
       noun2: '',
@@ -25,13 +34,28 @@ export class WarComponent implements OnInit {
       noun5: [''],
       emotion: ['']
     });
+
     this.submission = fb.group({
-      'creator': [{value: '', disabled: false }, Validators.requiredTrue],
+      'creator': [{value: ''}],
       'madlib': [{value: 'war', disabled: true}]
     });
+
+    this.subsrciption = this.madlibService.receiveMadlib().subscribe(
+      madlib => {
+        this.setMadlib(madlib);
+      });
   }
 
   ngOnInit() {
+    const query = {
+      madlib: 'war'
+    };
+
+    this.madlibService.getMadLib(query).subscribe(
+      data => this.madlibs = data,
+      error => console.log(error),
+      () => this.isLoading = false
+    );
   }
 
   reset(): void {
@@ -44,7 +68,15 @@ export class WarComponent implements OnInit {
       user: user.value
     };
 
+    data.user.madlib = 'war';
+
     this.submitMadlib.emit(data);
+  }
+
+  setMadlib(madlib: any): void {
+    if (madlib.madlib === 'war') {
+      this.war.setValue(madlib.data);
+    }
   }
 
 }

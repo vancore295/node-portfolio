@@ -1,76 +1,94 @@
-<div class="card border-primary">
-    <div class="card-block">
-        <form [formGroup]="proverbs">
+<div class="row">
+    <div class="col-md-4">
+        <ng-container *ngIf="!isLoading">
+            <app-madlib-list [madlibs]="madlibs"></app-madlib-list>
+        </ng-container>
+        <ng-container *ngIf="isLoading" class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <div class="col form-group">
-                        <label>Noun</label>
-                        <input class="form-control" type="text" formControlName="noun1" placeholder="Noun">
-                    </div>
-                    <div class="col form-group">
-                        <label>Number</label>
-                        <input class="form-control" type="text" formControlName="number" placeholder="Number">
-                    </div>
-                    <div class="col form-group">
-                        <label>Noun</label>
-                        <input class="form-control" type="text" formControlName="noun2" placeholder="Noun">
-                    </div>
-                    <div class="col form-group">
-                        <label>Adjective</label>
-                        <input class="form-control" type="text" formControlName="adj1" placeholder="Adjective">
-                    </div>
-                    <div class="col form-group">
-                        <label>Verb ending in s</label>
-                        <input class="form-control" type="text" formControlName="verbs1" placeholder="Verb ending in s">
-                    </div>
-                    <div class="col form-group">
-                        <label>Adjective</label>
-                        <input class="form-control" type="text" formControlName="adj2" placeholder="Adjective">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="col form-group">
-                        <label>Noun</label>
-                        <input class="form-control" type="text" formControlName="noun3" placeholder="Noun">
-                    </div>
-                    <div class="col form-group">
-                        <label>Adjective</label>
-                        <input class="form-control" type="text" formControlName="adj3" placeholder="Adjective">
-                    </div>
-                    <div class="col form-group">
-                        <label>Noun</label>
-                        <input class="form-control" type="text" formControlName="noun4" placeholder="Noun">
-                    </div>
-                    <div class="col form-group">
-                        <label>Noun</label>
-                        <input class="form-control" type="text" formControlName="noun5" placeholder="Noun">
-                    </div>
-                    <div class="col form-group">
-                        <label>Verb ending in s</label>
-                        <input class="form-control" type="text" formControlName="verbs2" placeholder="Verb ending in s">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border-info">
-                        <div class="card-header bg-info text-white">
-                            Ancient Proverbs
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text">"A/An <span><b>{{ proverbs.controls.noun1.value }}</b></span> in the hand is worth <span><b>{{ proverbs.controls.number.value }}</b></span> in the
-                                <span><b>{{ proverbs.controls.noun2.value }}</b></span>."</p>
-                            <p class="card-text">"A/An <span><b>{{ proverbs.controls.adj1.value }}</b></span> mouth <span><b>{{ proverbs.controls.verbs1.value }}</b></span> no feet."</p>
-                            <p class="card-text">"A/An <span><b>{{ proverbs.controls.adj2.value }}</b></span> <span><b>{{ proverbs.controls.noun3.value }}</b></span> believes anything, but a <span><b>{{ proverbs.controls.adj3.value }}</b></span> <span><b>{{ proverbs.controls.noun3.value }}</b></span>gives
-                                though to his <span><b>{{ proverbs.controls.noun4.value }}</b></span>."</p>
-                            <p class="card-text">"A <span><b>{{ proverbs.controls.noun5.value }}</b></span> in time <span><b>{{ proverbs.controls.verbs2.value }}</b></span>."</p>
-                        </div>
-                    </div>
-                    <button type="button" class="btn btn-danger text-white" (click)="reset()">Reset</button>
-                    <button type="submit" class="btn btn-success" (click)="saveModal.show()">Save</button>
+                <div class="d-flex justify-content-center">
+                    <fa name="cog" animation="spin" size="5x"></fa>
                 </div>
             </div>
-        </form>
+        </ng-container>
+    </div>
+    <div class="col-md-8">
+        <div class="card border-primary">
+            <div class="card-block">
+                <form [formGroup]="proverbs">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col form-group">
+                                <label>Noun</label>
+                                <input class="form-control" type="text" formControlName="noun1" placeholder="Noun">
+                            </div>
+                            <div class="col form-group">
+                                <label>Number</label>
+                                <input class="form-control" type="text" formControlName="number" placeholder="Number">
+                            </div>
+                            <div class="col form-group">
+                                <label>Noun</label>
+                                <input class="form-control" type="text" formControlName="noun2" placeholder="Noun">
+                            </div>
+                            <div class="col form-group">
+                                <label>Adjective</label>
+                                <input class="form-control" type="text" formControlName="adj1" placeholder="Adjective">
+                            </div>
+                            <div class="col form-group">
+                                <label>Verb ending in s</label>
+                                <input class="form-control" type="text" formControlName="verbs1" placeholder="Verb ending in s">
+                            </div>
+                            <div class="col form-group">
+                                <label>Adjective</label>
+                                <input class="form-control" type="text" formControlName="adj2" placeholder="Adjective">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col form-group">
+                                <label>Noun</label>
+                                <input class="form-control" type="text" formControlName="noun3" placeholder="Noun">
+                            </div>
+                            <div class="col form-group">
+                                <label>Adjective</label>
+                                <input class="form-control" type="text" formControlName="adj3" placeholder="Adjective">
+                            </div>
+                            <div class="col form-group">
+                                <label>Noun</label>
+                                <input class="form-control" type="text" formControlName="noun4" placeholder="Noun">
+                            </div>
+                            <div class="col form-group">
+                                <label>Noun</label>
+                                <input class="form-control" type="text" formControlName="noun5" placeholder="Noun">
+                            </div>
+                            <div class="col form-group">
+                                <label>Verb ending in s</label>
+                                <input class="form-control" type="text" formControlName="verbs2" placeholder="Verb ending in s">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card border-info">
+                                <div class="card-header bg-info text-white">
+                                    Ancient Proverbs
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">"A/An <span><b>{{ proverbs.controls.noun1.value }}</b></span> in the hand is worth <span><b>{{ proverbs.controls.number.value }}</b></span> in the
+                                        <span><b>{{ proverbs.controls.noun2.value }}</b></span>."</p>
+                                    <p class="card-text">"A/An <span><b>{{ proverbs.controls.adj1.value }}</b></span> mouth <span><b>{{ proverbs.controls.verbs1.value }}</b></span> no feet."</p>
+                                    <p class="card-text">"A/An <span><b>{{ proverbs.controls.adj2.value }}</b></span> <span><b>{{ proverbs.controls.noun3.value }}</b></span> believes anything, but a <span><b>{{ proverbs.controls.adj3.value }}</b></span> <span><b>{{ proverbs.controls.noun3.value }}</b></span>gives
+                                        though to his <span><b>{{ proverbs.controls.noun4.value }}</b></span>."</p>
+                                    <p class="card-text">"A <span><b>{{ proverbs.controls.noun5.value }}</b></span> in time <span><b>{{ proverbs.controls.verbs2.value }}</b></span>."</p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-danger text-white" (click)="reset()">Reset</button>
+                            <button type="submit" class="btn btn-success" (click)="saveModal.show()">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
+
+
 
 <app-modal #saveModal>
     <div class="app-modal-header">

@@ -1,83 +1,102 @@
-<div class="card border-primary">
-    <div class="card-block">
-        <form [formGroup]="war">
+<div class="row">
+    <div class="col-md-4">
+        <ng-container *ngIf="!isLoading">
+            <app-madlib-list [madlibs]="madlibs"></app-madlib-list>
+        </ng-container>
+        <ng-container *ngIf="isLoading" class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <div class="col form-group">
-                        <label>Noun</label>
-                        <input class="form-control" type="text" formControlName="noun1" placeholder="Noun">
-                    </div>
-                    <div class="col form-group">
-                        <label>Noun</label>
-                        <input class="form-control" type="text" formControlName="noun2" placeholder="Noun">
-                    </div>
-                    <div class="col form-group">
-                        <label>Noun</label>
-                        <input class="form-control" type="text" formControlName="noun3" placeholder="Noun">
-                    </div>
-                    <div class="col form-group">
-                        <label>Occupation</label>
-                        <input class="form-control" type="text" formControlName="occupation" placeholder="Occupation">
-                    </div>
-                    <div class="col form-group">
-                        <label>Verb</label>
-                        <input class="form-control" type="text" formControlName="verb1" placeholder="Verb">
-                    </div>
-                    <div class="col form-group">
-                        <label>Place</label>
-                        <input class="form-control" type="text" formControlName="place" placeholder="Place">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="col form-group">
-                        <label>Verb ending in "ing"</label>
-                        <input class="form-control" type="text" formControlName="verbing1" placeholder="Verb ending in ing">
-                    </div>
-                    <div class="col form-group">
-                        <label>Noun</label>
-                        <input class="form-control" type="text" formControlName="noun4" placeholder="Noun">
-                    </div>
-                    <div class="col form-group">
-                        <label>Verb ending in "ing"</label>
-                        <input class="form-control" type="text" formControlName="verbing2" placeholder="Verb ending in ing">
-                    </div>
-                    <div class="col form-group">
-                        <label>Noun(plural)</label>
-                        <input class="form-control" type="text" formControlName="noun_plural" placeholder="Noun(plural)">
-                    </div>
-                    <div class="col form-group">
-                        <label>Noun</label>
-                        <input class="form-control" type="text" formControlName="noun5" placeholder="Noun">
-                    </div>
-                    <div class="col form-group">
-                        <label>Emotion</label>
-                        <input class="form-control" type="text" formControlName="emotion" placeholder="Emotion">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border-info">
-                        <div class="card-header bg-info text-white">
-                            War
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text">It was durring the <span><b>{{ war.controls.noun1.value }}</b></span> when I was running through a
-                                <span><b>{{ war.controls.noun2.value }}</b></span> when a <span><b>{{ war.controls.noun3.value }}</b></span> went off next to my platoon. Our
-                                <span><b>{{ war.controls.occupation.value }}</b></span> yelled for us to <span><b>{{ war.controls.verb1.value }}</b></span> to the nearest <span><b>{{ war.controls.place.value }}</b></span> we could find. When we got to
-                                the <span><b>{{ war.controls.place.value }}</b></span> we <span><b>{{ war.controls.verbing1.value }}</b></span>to start a fire. As were starting the fire the enemy saw the
-                                <span><b>{{ war.controls.noun4.value }}</b></span> from the fire and started <span><b>{{ war.controls.verbing2.value }}</b></span>
-                                <span><b>{{ war.controls.noun_plural.value }}</b></span> at us. We all quickly ducked behind the <span><b>{{ war.controls.noun5.value }}</b></span> at the <span><b>{{ war.controls.place.value }}</b></span> and returned
-                                fire. We quickly eliminated the enemy and were
-                                <span><b>{{ war.controls.emotion.value }}</b></span>
-                            </p>
-                        </div>
-                    </div>
-                    <button type="button" class="btn btn-danger text-white" (click)="reset()">Reset</button>
-                    <button type="submit" class="btn btn-success" (click)="saveModal.show()">Save</button>
+                <div class="d-flex justify-content-center">
+                    <fa name="cog" animation="spin" size="5x"></fa>
                 </div>
             </div>
-        </form>
+        </ng-container>
+    </div>
+
+    <div class="col-md-8">
+        <div class="card border-primary">
+            <div class="card-block">
+                <form [formGroup]="war">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col form-group">
+                                <label>Noun</label>
+                                <input class="form-control" type="text" formControlName="noun1" placeholder="Noun">
+                            </div>
+                            <div class="col form-group">
+                                <label>Noun</label>
+                                <input class="form-control" type="text" formControlName="noun2" placeholder="Noun">
+                            </div>
+                            <div class="col form-group">
+                                <label>Noun</label>
+                                <input class="form-control" type="text" formControlName="noun3" placeholder="Noun">
+                            </div>
+                            <div class="col form-group">
+                                <label>Occupation</label>
+                                <input class="form-control" type="text" formControlName="occupation" placeholder="Occupation">
+                            </div>
+                            <div class="col form-group">
+                                <label>Verb</label>
+                                <input class="form-control" type="text" formControlName="verb1" placeholder="Verb">
+                            </div>
+                            <div class="col form-group">
+                                <label>Place</label>
+                                <input class="form-control" type="text" formControlName="place" placeholder="Place">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col form-group">
+                                <label>Verb ending in "ing"</label>
+                                <input class="form-control" type="text" formControlName="verbing1" placeholder="Verb ending in ing">
+                            </div>
+                            <div class="col form-group">
+                                <label>Noun</label>
+                                <input class="form-control" type="text" formControlName="noun4" placeholder="Noun">
+                            </div>
+                            <div class="col form-group">
+                                <label>Verb ending in "ing"</label>
+                                <input class="form-control" type="text" formControlName="verbing2" placeholder="Verb ending in ing">
+                            </div>
+                            <div class="col form-group">
+                                <label>Noun(plural)</label>
+                                <input class="form-control" type="text" formControlName="noun_plural" placeholder="Noun(plural)">
+                            </div>
+                            <div class="col form-group">
+                                <label>Noun</label>
+                                <input class="form-control" type="text" formControlName="noun5" placeholder="Noun">
+                            </div>
+                            <div class="col form-group">
+                                <label>Emotion</label>
+                                <input class="form-control" type="text" formControlName="emotion" placeholder="Emotion">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card border-info">
+                                <div class="card-header bg-info text-white">
+                                    War
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">It was durring the <span><b>{{ war.controls.noun1.value }}</b></span> when I was running through a
+                                        <span><b>{{ war.controls.noun2.value }}</b></span> when a <span><b>{{ war.controls.noun3.value }}</b></span> went off next to my platoon. Our
+                                        <span><b>{{ war.controls.occupation.value }}</b></span> yelled for us to <span><b>{{ war.controls.verb1.value }}</b></span> to the nearest <span><b>{{ war.controls.place.value }}</b></span> we could find. When we
+                                        got to the <span><b>{{ war.controls.place.value }}</b></span> we <span><b>{{ war.controls.verbing1.value }}</b></span>to start a fire. As were starting the fire the enemy saw the
+                                        <span><b>{{ war.controls.noun4.value }}</b></span> from the fire and started <span><b>{{ war.controls.verbing2.value }}</b></span>
+                                        <span><b>{{ war.controls.noun_plural.value }}</b></span> at us. We all quickly ducked behind the <span><b>{{ war.controls.noun5.value }}</b></span> at the <span><b>{{ war.controls.place.value }}</b></span> and returned
+                                        fire. We quickly eliminated the enemy and were
+                                        <span><b>{{ war.controls.emotion.value }}</b></span>
+                                    </p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-danger text-white" (click)="reset()">Reset</button>
+                            <button type="submit" class="btn btn-success" (click)="saveModal.show()">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
+
+
 
 <app-modal #saveModal>
     <div class="app-modal-header">

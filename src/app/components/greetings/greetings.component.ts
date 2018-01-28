@@ -19,7 +19,7 @@ export class GreetingsComponent implements OnInit {
   isLoading = true;
   subsrciption: Subscription;
 
-  constructor(fb: FormBuilder, private madlibService: MadlibService, private http: Http) {
+  constructor(fb: FormBuilder, private madlibService: MadlibService) {
     this.greet = fb.group({
       noun_plural: [''],
       occupation: [''],
@@ -72,6 +72,5 @@ export class GreetingsComponent implements OnInit {
       this.greet.setValue(madlib.data);
     }
   }
-
 
 }
