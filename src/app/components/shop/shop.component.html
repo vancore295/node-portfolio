@@ -13,7 +13,7 @@
                     <a class="nav-item nav-link">FAQ</a>
                 </div>
             </div>
-            <button (click)="Cart.show()" [disabled]="cart.length < 1">
+            <button class="btn" (click)="Cart.show()" [disabled]="cart.length < 1">
 				<sub *ngIf="cart.length > 0" class="text-black">{{ cart.length }}</sub>
                 <fa name="shopping-cart" size="lg"></fa>
                 <sup *ngIf="total > 0" class="text-black">{{ total | currency:'USD':true:'2.2-4'}}</sup>
