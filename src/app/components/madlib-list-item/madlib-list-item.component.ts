@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
+import { MadlibService } from '../../services/madlibs/madlib.service';
+
 @Component({
   selector: 'app-madlib-list-item',
   templateUrl: './madlib-list-item.component.html',
@@ -12,7 +14,7 @@ export class MadlibListItemComponent implements OnInit {
   madlibkeys = [];
 
 
-  constructor() { }
+  constructor(private madlibService: MadlibService) { }
 
   ngOnInit() {
     this.madlibkeys = Object.keys(this.madlib.data);
@@ -20,6 +22,14 @@ export class MadlibListItemComponent implements OnInit {
 
   select(data: any): void {
     this.selectMadlib.emit(data);
+  }
+
+  sendMadlib(madlib: any): void {
+    this.madlibService.sendMadlib(madlib);
+  }
+
+  clearMadlib(): void {
+    this.madlibService.clearMadlib();
   }
 
 }

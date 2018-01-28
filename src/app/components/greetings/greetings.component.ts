@@ -1,10 +1,10 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {  FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpModule, Http } from '@angular/http';
-
-import { MadlibService } from '../../services/madlibs/madlib.service';
+import { Subscription } from 'rxjs/Subscription';
 import { error } from 'util';
 
+import { MadlibService } from '../../services/madlibs/madlib.service';
 
 @Component({
   selector: 'app-greetings',
@@ -17,6 +17,7 @@ export class GreetingsComponent implements OnInit {
   @Output() submitMadlib = new EventEmitter<any>();
   madlibs: any[] = [];
   isLoading = true;
+  subsrciption: Subscription;
 
   constructor(fb: FormBuilder, private madlibService: MadlibService, private http: Http) {
     this.greet = fb.group({
@@ -27,10 +28,16 @@ export class GreetingsComponent implements OnInit {
       verb: [''],
       noun: ['']
     });
+
     this.submission = fb.group({
       'creator': '',
       'madlib': [{value: 'Greetings Earthlings', disabled: true}]
     });
+
+    this.subsrciption = this.madlibService.receiveMadlib().subscribe(
+      madlib => {
+        this.greet.setValue(madlib.data);
+      });
   }
 
   ngOnInit() {
@@ -57,4 +64,6 @@ export class GreetingsComponent implements OnInit {
 
     this.submitMadlib.emit(data);
   }
+
+
 }
