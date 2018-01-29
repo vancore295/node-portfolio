@@ -8,6 +8,7 @@ export default function setOrderRoutes(app) {
     const orderCtrl = new OrderController();
 
     router.route('/placeOrder').post(orderCtrl.insert);
+    router.route('/getOrders').get(orderCtrl.getAll);
 
     app.use('/api', router);
 }

@@ -10,14 +10,20 @@ const OrderItem = new mongoose.Schema({
 const Address = new mongoose.Schema({
     Country: String,
     State: String,
-    Citry: String,
+    City: String,
     Street: String,
     Zip: Number,
+});
+
+const Recipient = new mongoose.Schema({
+    Name: String,
+    Email: String
 });
 
 const orderShecma = new mongoose.Schema({
     orderNumber: Number,
     adress: { type: Address },
+    recipient: { type: Recipient },
     items: { type: [OrderItem] }
 });
 

@@ -18,6 +18,7 @@ import { ShopComponent } from './components/shop/shop.component';
 import { ShopitemComponent } from './components/shopitem/shopitem.component';
 import { ChatRoomComponent } from './components/chat-room/chat-room.component';
 import { ChatComponent } from './modules/chat/components/chat/chat.component';
+import { OrderListComponent } from './components/order-list/order-list.component';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent, data: { title: 'Agassou Studios' } },
@@ -27,6 +28,7 @@ const appRoutes: Routes = [
     { path: 'madlibs', component: MadlibsComponent },
     { path: 'shop', component: ShopComponent },
     // { path: 'chat', component: ChatRoomComponent },
+    { path: 'order', component: OrderListComponent },
     { path: '**', component: PagePageNotFoundComponent }
   ];
 

@@ -26,4 +26,8 @@ export class ShopService {
     return this.http.post('api/placeOrder', order).map(res => res.json());
   }
 
+  getOrders(): Observable<any> {
+    return this.http.get('api/getOrders').map(res => res.json());
+  }
+
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import {  FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpModule, Http } from '@angular/http';
 import { Subscription } from 'rxjs/Subscription';
 import { error } from 'util';

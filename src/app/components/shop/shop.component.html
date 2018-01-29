@@ -65,6 +65,67 @@
     </div>
     <div class="app-modal-footer">
         <button type="button" class="btn btn-primary" (click)="Cart.hide()">Close</button>
-        <button type="button" class="btn btn-success" (click)="checkOut(cart)" [disabled]="processingOrder || orderSuccess || orderError">Checkout</button>
+        <button type="button" class="btn btn-success" (click)="Checkout.show(); Cart.hide()" [disabled]="processingOrder || orderSuccess || orderError">Go To Checkout</button>
+    </div>
+</app-modal>
+
+<app-modal #Checkout>
+    <div class="app-modal-header">
+        checkout
+    </div>
+    <div class="app-modal-body" *ngIf="!processingOrder && !orderSuccess && !orderError">
+        <form [formGroup]="recipient">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Name" formControlName="name">
+                <div *ngIf="recipient.controls.name.invalid && (recipient.dirty || recipient.touched)" class="alert alert-danger">
+                    <div *ngIf="recipient.controls.name.errors.required">
+                        Name is required.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Email">
+            </div>
+        </form>
+
+        <form [formGroup]="address">
+            <div class="form-group">
+                <label for="country">Country</label>
+                <input type="text" class="form-control" id="country" placeholder="Country">
+            </div>
+            <div class="form-group">
+                <label for="state">State/Province</label>
+                <input type="text" class="form-control" id="state" placeholder="State/Province">
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city" placeholder="City">
+            </div>
+            <div class="form-group">
+                <label for="street">Street</label>
+                <input type="text" class="form-control" id="street" placeholder="Street">
+            </div>
+            <div class="form-group">
+                <label for="zip">Postal Code</label>
+                <input type="number" class="form-control" id="zip" placeholder="Postal Code">
+            </div>
+        </form>
+    </div>
+    <div class="app-modal-body" *ngIf="processingOrder">
+        <div class="d-flex justify-content-center">
+            <fa name="cog" animation="spin" size="3x"></fa>
+        </div>
+    </div>
+    <div class="app-modal-body" *ngIf="!processingOrder && orderSuccess">
+        Order succesful!
+    </div>
+    <div class="app-modal-body" *ngIf="!processingOrder && orderError">
+        Order Error!
+    </div>
+    <div class="app-modal-footer">
+        <button type="button" class="btn btn-primary" (click)="Checkout.hide()">Close</button>
+        <button type="button" class="btn btn-success" (click)="checkOut(cart, recipient, address)" [disabled]="(recipient.invalid || address.invalid) || (processingOrder || orderSuccess || orderError)">Checkout</button>
     </div>
 </app-modal>

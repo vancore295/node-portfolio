@@ -1,0 +1,13 @@
+<ng-container *ngIf="isLoading" class="container">
+    <div class="row">
+        <div class="d-flex justify-content-center">
+            <fa name="cog" animation="spin" size="5x"></fa>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="!isLoading" class="container">
+    <div class="row">
+        <app-order-list-item *ngFor="let order of pastOrders" [order]="order"></app-order-list-item>
+    </div>
+</ng-container>

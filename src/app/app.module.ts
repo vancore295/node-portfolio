@@ -30,6 +30,8 @@ import { SkillsComponent } from './components/skills/skills.component';
 import { ChatRoomComponent } from './components/chat-room/chat-room.component';
 import { MadlibListItemComponent } from './components/madlib-list-item/madlib-list-item.component';
 import { MadlibListComponent } from './components/madlib-list/madlib-list.component';
+import { OrderListComponent } from './components/order-list/order-list.component';
+import { OrderListItemComponent } from './components/order-list-item/order-list-item.component';
 
 // Servics
 import { MenuService } from './services/menu/menu.service';
@@ -38,6 +40,8 @@ import { MadlibService } from './services/madlibs/madlib.service';
 
 // Routes
 import { RoutingModule } from './routing.module';
+
+
 
 
 
@@ -66,7 +70,9 @@ import { RoutingModule } from './routing.module';
     SkillsComponent,
     ChatRoomComponent,
     MadlibListItemComponent,
-    MadlibListComponent
+    MadlibListComponent,
+    OrderListComponent,
+    OrderListItemComponent
   ],
   imports: [
     BrowserModule,

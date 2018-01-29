@@ -1,5 +1,6 @@
 import { Component, OnInit,  OnChanges, SimpleChanges } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { ShopItem } from '../../classes/shopitem';
 import { Order } from '../../classes/order';
@@ -18,13 +19,28 @@ export class ShopComponent implements OnInit, OnChanges {
   shopItems: ShopItem[] = [];
   cart: ShopItem[] = [];
   total: Number = 0;
+  address: FormGroup;
+  recipient: FormGroup;
 
   isLoading = true;
   processingOrder = false;
   orderSuccess = false;
   orderError = false;
 
-  constructor(private shopservice: ShopService, private http: Http ) { }
+  constructor(private shopservice: ShopService, private fb: FormBuilder) {
+    this.recipient = fb.group({
+      name: [null, Validators.required],
+      email: [null, [Validators.required, Validators.email]]
+    });
+
+    this.address = fb.group({
+      country: [null, Validators.required],
+      state: [null, Validators.required],
+      city: [null, Validators.required],
+      street: [null, Validators.required],
+      zip: [null, Validators.required]
+    });
+   }
 
   ngOnInit() {
     this.getShopItems();
@@ -81,11 +97,15 @@ export class ShopComponent implements OnInit, OnChanges {
     return total;
   }
 
-  checkOut(cart: ShopItem[]) {
+  checkOut(cart: ShopItem[], recipient: FormGroup, address: FormGroup) {
     console.log('Checking out');
     this.processingOrder = true;
+
     const newOrder = new Order();
     newOrder.items = this.convertToOrder(cart);
+    newOrder.Address = address.value;
+    newOrder.Recipient = recipient.value;
+
     this.placeOrder(newOrder);
   }
 
