@@ -27,7 +27,7 @@ const appRoutes: Routes = [
     { path: 'gameJams', component: GamejamsComponent },
     { path: 'madlibs', component: MadlibsComponent },
     { path: 'shop', component: ShopComponent },
-    // { path: 'chat', component: ChatRoomComponent },
+    { path: 'chat', component: ChatRoomComponent },
     { path: 'order', component: OrderListComponent },
     { path: '**', component: PagePageNotFoundComponent }
   ];
