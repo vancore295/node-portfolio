@@ -13,10 +13,11 @@ import { Message } from './models/message';
 const app = express();
 const chatServer: Server = createServer(app);
 const io: SocketIO.Server = socketIo(chatServer);
-const chatPort = (process.env.CHAT_PORT || 8081);
+
 
 dotenv.load({ path: '.env' });
 app.set('port', (process.env.PORT || 3000));
+const chatPort = (process.env.CHAT_PORT || 3001);
 
 app.use('/', express.static(path.join(__dirname, '../public')));
 app.use(bodyParser.json());
