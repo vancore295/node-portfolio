@@ -41,15 +41,7 @@ export class GreetingsComponent implements OnInit {
   }
 
   ngOnInit() {
-    const query = {
-      madlib: 'greetings'
-    };
-
-    this.madlibService.getMadLib(query).subscribe(
-      data => this.madlibs = data,
-      error => console.log(error),
-      () => this.isLoading = false
-    );
+    this.getOldMadlibs();
   }
 
   reset(): void {
@@ -70,7 +62,22 @@ export class GreetingsComponent implements OnInit {
   setMadlib(madlib: any): void {
     if (madlib.madlib === 'greetings') {
       this.greet.setValue(madlib.data);
+      this.reset();
+      this.getOldMadlibs();
     }
+  }
+
+  getOldMadlibs(): void {
+    this.isLoading = true;
+    const query = {
+      madlib: 'greetings'
+    };
+
+    this.madlibService.getMadLib(query).subscribe(
+      data => this.madlibs = data,
+      error => console.log(error),
+      () => this.isLoading = false
+    );
   }
 
 }

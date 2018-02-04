@@ -45,19 +45,12 @@ export class ProverbsComponent implements OnInit {
   }
 
   ngOnInit() {
-    const query = {
-      madlib: 'proverbs'
-    };
-
-    this.madlibService.getMadLib(query).subscribe(
-      data => this.madlibs = data,
-      error => console.log(error),
-      () => this.isLoading = false
-    );
+    this.getOldMadlibs();
   }
 
   reset(): void {
     this.proverbs.reset();
+    this.submission.reset();
   }
 
   onSubmit(lib: FormGroup, user: FormGroup): void {
@@ -72,7 +65,22 @@ export class ProverbsComponent implements OnInit {
   setMadlib(madlib: any): void {
     if (madlib.madlib === 'proverbs') {
       this.proverbs.setValue(madlib.data);
+      this.reset();
+      this.getOldMadlibs();
     }
+  }
+
+  getOldMadlibs(): void {
+    this.isLoading = true;
+    const query = {
+      madlib: 'proverbs'
+    };
+
+    this.madlibService.getMadLib(query).subscribe(
+      data => this.madlibs = data,
+      error => console.log(error),
+      () => this.isLoading = false
+    );
   }
 
 }

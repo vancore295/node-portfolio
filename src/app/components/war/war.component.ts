@@ -47,19 +47,12 @@ export class WarComponent implements OnInit {
   }
 
   ngOnInit() {
-    const query = {
-      madlib: 'war'
-    };
-
-    this.madlibService.getMadLib(query).subscribe(
-      data => this.madlibs = data,
-      error => console.log(error),
-      () => this.isLoading = false
-    );
+    this.getOldMadlibs();
   }
 
   reset(): void {
     this.war.reset();
+    this.submission.reset();
   }
 
   onSubmit(lib: FormGroup, user: FormGroup): void {
@@ -76,7 +69,22 @@ export class WarComponent implements OnInit {
   setMadlib(madlib: any): void {
     if (madlib.madlib === 'war') {
       this.war.setValue(madlib.data);
+      this.reset();
+      this.getOldMadlibs();
     }
+  }
+
+  getOldMadlibs(): void {
+    this.isLoading = true;
+    const query = {
+      madlib: 'war'
+    };
+
+    this.madlibService.getMadLib(query).subscribe(
+      data => this.madlibs = data,
+      error => console.log(error),
+      () => this.isLoading = false
+    );
   }
 
 }
