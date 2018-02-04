@@ -64,13 +64,13 @@ export class WarComponent implements OnInit {
     data.user.madlib = 'war';
 
     this.submitMadlib.emit(data);
+    this.reset();
+    this.getOldMadlibs();
   }
 
   setMadlib(madlib: any): void {
     if (madlib.madlib === 'war') {
       this.war.setValue(madlib.data);
-      this.reset();
-      this.getOldMadlibs();
     }
   }
 

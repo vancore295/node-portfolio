@@ -60,13 +60,13 @@ export class ProverbsComponent implements OnInit {
     };
 
     this.submitMadlib.emit(data);
+    this.reset();
+    this.getOldMadlibs();
   }
 
   setMadlib(madlib: any): void {
     if (madlib.madlib === 'proverbs') {
       this.proverbs.setValue(madlib.data);
-      this.reset();
-      this.getOldMadlibs();
     }
   }
 

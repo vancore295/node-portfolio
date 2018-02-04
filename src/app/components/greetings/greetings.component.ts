@@ -57,13 +57,13 @@ export class GreetingsComponent implements OnInit {
     data.user.madlib = 'greetings';
 
     this.submitMadlib.emit(data);
+    this.reset();
+    this.getOldMadlibs();
   }
 
   setMadlib(madlib: any): void {
     if (madlib.madlib === 'greetings') {
       this.greet.setValue(madlib.data);
-      this.reset();
-      this.getOldMadlibs();
     }
   }
 
