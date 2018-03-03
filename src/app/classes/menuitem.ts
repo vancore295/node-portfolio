@@ -1,4 +1,5 @@
 export class MenuItem {
+    _id: string;
     route: string;
     href: string;
     target: string;

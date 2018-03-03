@@ -1,4 +1,4 @@
-<div class="menuitem" *ngIf="menuItem.route != ''">
+<div class="menuitem" *ngIf="menuItem.route != ''" id="menuItem._id">
     <ng-container>
         <a class="text-light" routerLink="/{{ menuItem.route }}" [attr.data-toggle]="menuItem.dataToggle" [attr.data-placement]="menuItem.dataPlacement" [attr.title]="menuItem.title" [attr.target]="menuItem.target">
 
@@ -15,7 +15,7 @@
 </div>
 
 
-<div class="menuitem" *ngIf="menuItem.href != ''">
+<div class="menuitem" *ngIf="menuItem.href != ''" id="menuItem._id">
     <ng-container>
         <a class="text-light" href="{{menuItem.href}}" [attr.data-toggle]="menuItem.dataToggle" [attr.data-placement]="menuItem.dataPlacement" [attr.title]="menuItem.title" [attr.target]="menuItem.target">
 
