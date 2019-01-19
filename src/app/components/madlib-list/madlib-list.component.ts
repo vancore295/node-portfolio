@@ -7,10 +7,16 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MadlibListComponent implements OnInit {
   @Input() madlibs;
+  activeTab = 0;
 
   constructor() { }
 
   ngOnInit() {
+    this.activeTab = 0;
+  }
+
+  setActiveTab(index: number) {
+    this.activeTab = index;
   }
 
 }

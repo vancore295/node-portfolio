@@ -1,11 +1,11 @@
 <nav class="nav nav-tabs nav-fill justify-content-center" id="oldgreetings" role="tablist">
-    <a *ngFor="let lib of madlibs; let index = index" [class.active]="index === 0" class="nav-item nav-link" id="nav-{{lib._id}}-tab" data-toggle="tab" href="#{{lib._id}}" role="tab">{{lib.creator}}'s Madlib</a>
+    <a *ngFor="let lib of madlibs; let index = index" [class.active]="index === activeTab" (click)="setActiveTab(index)" class="nav-item nav-link" id="nav-{{lib._id}}-tab" data-toggle="tab" href="#{{lib._id}}" role="tab">{{lib.creator}}'s Madlib</a>
 </nav>
 
 <div class="row">
     <div class="col-md-12">
         <div class="tab-content" id="nav-madlibListTabContent">
-            <div class="tab-pane" *ngFor="let lib of madlibs; let index = index" id="{{lib._id}}" [class.active]="index === 0">
+            <div class="tab-pane" *ngFor="let lib of madlibs; let index = index" id="{{lib._id}}" [class.active]="index === activeTab">
                 <app-madlib-list-item [madlib]="lib"></app-madlib-list-item>
             </div>
         </div>
