@@ -7,7 +7,7 @@ import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 })
 export class ResumeComponent implements OnInit, AfterViewInit {
   context: CanvasRenderingContext2D;
-  @ViewChild('myCanvas') line;
+  @ViewChild('myCanvas', {static: false }) line;
 
   ngAfterViewInit(): void {
     const canvas = this.line.nativeElement;
